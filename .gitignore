@@ -1,0 +1,18 @@
+#Ignores all the virtual environment data
+.env
+# Python
+__pycache__/
+.venv/
+
+#Ignores all the Data & Databases
+data/
+postgres_data/
+*.db 
+
+#Ignores all the docker and log files
+Docker & Logs
+.docker/
+*.Logs
+
+# System
+.DS_Store

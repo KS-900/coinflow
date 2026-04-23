@@ -1,0 +1,34 @@
+.gitignore: In a '.gitignore' you put file extentions or folders of all files you do not want git to track. Keep in mind the file that hold either big data or sensitive information are the files you do not want git to keep track of.
+
+README.md: This is the file that guides other Users of the technical requirements of the program and how to use your program and all the testing credentials. This is also where the documentation and guide for your project lives.
+
+docker-compose.yml: This is a file that runs all the required software for your project the same way it would on any other machine. Before running file you download docker desktop and install it best practice is using the command line. After installation accept terms and conditions. 
+Troubleshooting:
+1. Should docker desktop not start engine insure that you downloaded the correct version.
+2. If correct version is installed check if settings file is corrupted. If not sure delete file and docker will auto create a new file. 
+3. Should that not work install and update wsl with the following commands in your command prompt wsl --install, wsl --update.
+4. If that does not wark delete and reinstall the docker desktop and if that does not work conduct deep reasearch on stack overflow, Medium, and redit.
+
+Writting a docker-compose.yml file: 
+yml works like a python dictionary which if you forget is key:value (ALWAYS REMEBER THAT)
+yml is case sensitive(lowercase). yml uses spaces and not tabs.  
+1. Version:[def]
+2. services: this is where you load all the software you are using e.g. postgresSQL before writting it you will first use a very impotant key(FIND BELOW)
+3. image:[def] then the value of the service you want in this case we will be using  postgres:16 the '16' is the version of the postgres you would like to use
+container_name: this is the name you provide for your docker container in the docker desktop this is how you will identify the container you are using incase you are working on multiple projects.
+4. evironment: this is where you create the login info for that specific service in our example we are working with postgres:16 so we need the following:
+5. POSTGRES_USER:[USERNAME to be used uppon login]
+6. POSTGRES_PASWORRD:[PASSWORD to be used uppon login]
+7. POSTGRES_DB:[This is the name you give your database for when you connect to the database] should you forget this field POSTGRES uses a default name called postgres to connect.
+8. ports: ports are use if you are running it locally on your device this is where you can find your database on 'localhost:[port number]for postgres its 5432:5432.[fill in for cloud hosting]
+9. volume: this is where your data and changes are stored because without the volume we would have to always reload our data because it would not be saved. give your volume a name e.g. my_data_database: [location]
+10. load or call your volumes to be in use just using the key.
+
+Creating Schemas 
+1. create a seed.sql file in the file directory. when creating a schema or table or database always use 'IF NOT EXISTS' so for schema: CREATE SCHEMA IF NOT EXISTS [name_of_schema]
+2. check in the database connection if schemas already exists.
+
+
+Tech Stack:
+PostgresSQL
+Python

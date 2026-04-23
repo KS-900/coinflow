@@ -1,0 +1,16 @@
+services:
+ database:
+  image: postgres:16
+  container_name: db_postgres
+  environment:
+   POSTGRES_USER: admin
+   POSTGRES_PASSWORD: admin123
+   POSTGRES_DB: coinflow
+  ports:
+   - 5432:5432
+  volumes:
+   - ./seed.sql:/docker-entrypoint-initdb.d/seed.sql
+   - my_data:/var/lib/postgres/data
+
+volumes:
+ my_data:
