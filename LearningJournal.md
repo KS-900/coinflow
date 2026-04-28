@@ -28,6 +28,11 @@ Creating Schemas
 1. create a seed.sql file in the file directory. when creating a schema or table or database always use 'IF NOT EXISTS' so for schema: CREATE SCHEMA IF NOT EXISTS [name_of_schema]
 2. check in the database connection if schemas already exists.
 
+Mandually downloading data.JSON
+1. Create a demo account and create a new key
+2. base URL:https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&x_cg_demo_api_key=CG-YOUR_API_KEY
+3. Download with ctrl + S 
+
 
 Tech Stack:
 PostgresSQL
