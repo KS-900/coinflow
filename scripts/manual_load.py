@@ -14,7 +14,7 @@ coins= r.json()
 # connect to database
 db_connection = psycopg2.connect(
     host="localhost",
-    database="postgres",
+    database="coinflow",
     user="admin",
     password="admin123")
 
@@ -47,9 +47,9 @@ for coin in coins:
     atl_change_percentage = coin['atl_change_percentage']
     atl_date = coin['atl_date']
     # Current error(mapping error some coins do not have this fields do it causes an error)
-    roi_times = coin.get(['roi']['times'],None)
-    roi_currency = coin.get(['roi']['currency'],None)
-    roi_percentage = coin.get(['roi']['percentage'],None)
+    roi_times = coin.get('roi' or {}).get('times', None)
+    roi_currency = coin.get('roi' or {}).get('currency', None)
+    roi_percentage = coin.get('roi' or {}).get('percentage', None)
     last_updated = coin['last_updated']
     # try insert data into database
     try:

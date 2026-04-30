@@ -9,8 +9,23 @@ services:
   ports:
    - 5432:5432
   volumes:
-   - ./seed.sql:/docker-entrypoint-initdb.d/seed.sql
+   - ./sql/seed/init.sql:/docker-entrypoint-initdb.d/init.sql
    - my_data:/var/lib/postgres/data
-
+ pgadmin:
+  image: dpage/pgadmin4:latest
+  container_name: pgadmin
+  environment:
+   PGADMIN_DEFAULT_EMAIL: admin@pgadmin.org
+   PGADMIN_DEFAULT_PASSWORD: admin123
+  ports:
+   - 8080:80
+  depends_on:
+   - database 
+  networks:
+   - my_network
 volumes:
  my_data:
+
+networks:
+ my_network:
+   driver: bridge

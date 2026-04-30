@@ -23,6 +23,7 @@ container_name: this is the name you provide for your docker container in the do
 8. ports: ports are use if you are running it locally on your device this is where you can find your database on 'localhost:[port number]for postgres its 5432:5432.[fill in for cloud hosting]
 9. volume: this is where your data and changes are stored because without the volume we would have to always reload our data because it would not be saved. give your volume a name e.g. my_data_database: [location]
 10. load or call your volumes to be in use just using the key.
+11. including a pgadmin in docker we need the image, container_name, when does it restart using the restart key, environment which includes the admin email and password, ports are after , dependency which is what does it depend on [side not do not use the database name here] use value as database from the services.
 
 Creating Schemas 
 1. create a seed.sql file in the file directory. when creating a schema or table or database always use 'IF NOT EXISTS' so for schema: CREATE SCHEMA IF NOT EXISTS [name_of_schema]
