@@ -22,6 +22,7 @@ db_connection = psycopg2.connect(
 cur = db_connection.cursor()
 
 #create function to check if key is array, then check if its empty or None.
+# This is the function created for mapping the data from the API to the database, some coins do not have all the fields that are being mapped, so this function will check if the key is an array, then check if its empty or None, if it is not empty or None then it will return the value of the key. 
 def check_key(array,key,item):
     if key not in array:
         pass
@@ -91,7 +92,7 @@ for coin in coins:
         # close cursor and connection
 
     #this is the problem, basically because you have the finally inside of the for loop it will close the cursor and connection after each iteration of the loop. so you need to move the finally outside of the for loop.
-    finally:
-        cur.close()
-        db_connection.close()
+
+cur.close()
+db_connection.close()
         
