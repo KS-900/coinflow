@@ -55,6 +55,7 @@ for coin in coins:
     last_updated = coin['last_updated']
     # try insert data into database
     try:
+        #The insert target is unqualified, so you need to use the schema name. for example: INSERT INTOraw.coin_markets. it probably fails with "relation does not exist" currently.
         cur.execute(
             "INSERT INTO coin_markets "
             "(id, symbol, name, image, current_price, market_cap, market_cap_rank, fully_diluted_valuation, total_volume, high_24h, " \
