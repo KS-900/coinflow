@@ -27,6 +27,7 @@ services:
 volumes:
  my_data:
 
+#networks is misconfigured, pgadmin is on my_network but database is not. pgAdmin can't resolve database by service name on a network the DB is not attached to. Either put both services on my_network or remove the network block
 networks:
  my_network:
    driver: bridge
