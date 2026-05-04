@@ -11,5 +11,6 @@
             "database": "coinflow",
             "username": "admin"
         }
-    ]
+    ],
+    "python-envs.defaultEnvManager": "ms-python.python:system"
 }
