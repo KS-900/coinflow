@@ -47,6 +47,8 @@ for coin in coins:
     atl_change_percentage = coin['atl_change_percentage']
     atl_date = coin['atl_date']
     # Current error(mapping error some coins do not have this fields do it causes an error)
+    
+    #this extraction is always wrong, it evaluates to the string 'roi' or {} so you need to use the get method to get the times, currency, and percentage.
     roi_times = coin.get('roi' or {}).get('times', None)
     roi_currency = coin.get('roi' or {}).get('currency', None)
     roi_percentage = coin.get('roi' or {}).get('percentage', None)
