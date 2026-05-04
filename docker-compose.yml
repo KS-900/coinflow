@@ -9,6 +9,7 @@ services:
   ports:
    - 5432:5432
   volumes:
+  #the init script path is wrong, it should be ./sql/init.sql not ./sql/seed/init.sql
    - ./sql/seed/init.sql:/docker-entrypoint-initdb.d/init.sql
    - my_data:/var/lib/postgres/data
  pgadmin:
