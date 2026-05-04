@@ -70,6 +70,8 @@ for coin in coins:
     except Exception as e:
         print (f"This request cannot be completed due to {e}")
         # close cursor and connection
+
+    #this is the problem, basically because you have the finally inside of the for loop it will close the cursor and connection after each iteration of the loop. so you need to move the finally outside of the for loop.
     finally:
         cur.close()
         db_connection.close()
