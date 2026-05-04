@@ -18,9 +18,28 @@ db_connection = psycopg2.connect(
     user="admin",
     password="admin123")
 
+# creating cursor
 cur = db_connection.cursor()
 
-# map data from api
+#create function to check if key is array, then check if its empty or None.
+def check_key(array,key,item):
+    if key not in array:
+        pass
+    elif key is None:
+        pass 
+    elif key is {}:
+        pass
+    else:
+        if key[item] not in array:
+            pass
+        elif key[item] is None:
+            pass 
+        elif key[item] is {}:
+            pass
+        else:
+            key[item]
+
+# map data from api 
 for coin in coins:
     id = coin['id']
     symbol = coin['symbol']
@@ -47,9 +66,9 @@ for coin in coins:
     atl_change_percentage = coin['atl_change_percentage']
     atl_date = coin['atl_date']
     # Current error(mapping error some coins do not have this fields do it causes an error)
-    roi_times = coin.get('roi' or {}).get('times', None)
-    roi_currency = coin.get('roi' or {}).get('currency', None)
-    roi_percentage = coin.get('roi' or {}).get('percentage', None)
+    roi_time = check_key(coin,'roi','time')
+    roi_currency = check_key(coin,'roi','currency')
+    roi_percentage = check_key(coin,'roi','percentage')
     last_updated = coin['last_updated']
     # try insert data into database
     try:
