@@ -2,7 +2,7 @@ CREATE SCHEMA IF NOT EXISTS raw;
 CREATE SCHEMA IF NOT EXISTS staging;
 CREATE SCHEMA IF NOT EXISTS marts;
 
-CREATE TABLE raw.coin_markets(
+CREATE TABLE raw.coin_markets (
 id TEXT PRIMARY KEY,
 symbol TEXT,
 name TEXT ,

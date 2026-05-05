@@ -13,6 +13,7 @@ postgres_data/
 Docker & Logs
 .docker/
 *.Logs
+.lock
 
 # System
 .DS_Store
