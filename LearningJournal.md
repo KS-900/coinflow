@@ -34,6 +34,20 @@ Mandually downloading data.JSON
 2. base URL:https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&x_cg_demo_api_key=CG-YOUR_API_KEY
 3. Download with ctrl + S 
 
+Manual Load with python script:
+1. Import all libraries needed
+2.
+3. use the request with api key and url
+4. save the data into json format
+5. connect to database 
+6. create cursor
+7. use for loop to iterate throught each item in the list of records
+8. save each to a veriable 
+9. insert data into databse table
+10. commit 
+11. close cursor 
+12. close connection
+
 
 Tech Stack:
 PostgresSQL

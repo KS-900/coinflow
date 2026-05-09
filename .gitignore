@@ -3,7 +3,8 @@
 # Python
 __pycache__/
 .venv/
-
+.vscode
+.ipynb/
 #Ignores all the Data & Databases
 data/
 postgres_data/
@@ -18,3 +19,4 @@ Docker & Logs
 # System
 .DS_Store
 .vscode
+test.ipynb
