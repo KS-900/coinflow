@@ -1,16 +1,4 @@
 {
-    "sqltools.connections": [
-        {
-            "ssh": "Disabled",
-            "previewLimit": 50,
-            "server": "localhost",
-            "port": 5432,
-            "askForPassword": true,
-            "driver": "PostgreSQL",
-            "name": "coinflow_db",
-            "database": "coinflow",
-            "username": "admin"
-        }
-    ],
+    "sqltools.connections": [],
     "python-envs.defaultEnvManager": "ms-python.python:system"
 }

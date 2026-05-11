@@ -20,3 +20,4 @@ Docker & Logs
 .DS_Store
 .vscode
 test.ipynb
+.vscode/settings.json
