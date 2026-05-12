@@ -7,23 +7,22 @@ import requests
 from dotenv import load_dotenv 
 
 load_dotenv()
+api_key = os.getenv("API_KEY")
 # Send get request to API
 def fetch_coin_markets():
     try:
-        r = requests.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&x_cg_demo_api_key={os.getenv("API_KEY")}')
-        r.raise_for_status()  # Check if the request was successful
+        r = requests.get(f'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&x_cg_demo_api_key={api_key}')
+        r.raise_for_status()  # Raises exception if not 2xx
         coins = r.json()
         return coins
     except requests.exceptions.HTTPError as e: 
         print(f"HTTP Error: {e}")
         return []
-    except requests.exceptions.RateLimitError as e:
-        print(f"Rate Limit Error: {e}")
-        return []
-    except requests.exceptions.EmptyDataError as e:
-        print(f"Empty Data Error: {e}")
+    except requests.exceptions.RequestException as e:
+        print(f"Request Error: {e}")
         return []
     
+print("Fetched coin markets data.")
 
 def transform_coin_markets(coins):
     try:
@@ -31,6 +30,14 @@ def transform_coin_markets(coins):
         #dropping duplicates
         coins_df.drop_duplicates(subset=['id'], inplace=True, keep="first")
         coins_df['ingested_at'] = pd.Timestamp.now()
+        if 'roi' in coins_df.columns:
+            coins_df['roi_times'] = coins_df['roi'].apply(lambda x: x.get('times') if isinstance(x, dict) else None)
+            coins_df['roi_currency'] = coins_df['roi'].apply(lambda x: x.get('currency') if isinstance(x, dict) else None)
+            coins_df['roi_percentage'] = coins_df['roi'].apply(lambda x: x.get('percentage') if isinstance(x, dict) else None)
+        else:            
+            coins_df['roi_times'] = None
+            coins_df['roi_currency'] = None
+            coins_df['roi_percentage'] = None
         return coins_df
     except Exception as e:
         print(f"Error transforming coin markets: {e}")
@@ -40,25 +47,33 @@ def load_coin_markets(coins_df):
     # check if dataframe is empty
     if coins_df.empty:
         print("No data to load")
-        raise Exception("No data to load")
-     # connect to database
-    db_connection = psycopg2.connect(
-            host=os.getenv("DB_HOST"),
-            database=os.getenv("DB_NAME"),
-            user=os.getenv("DB_USER"),
-            password=os.getenv("DB_PASSWORD")
-        )
+        return
+    try:
+    # connect to database
+        db_connection = psycopg2.connect(
+                host=os.getenv("DB_HOST"),
+                database=os.getenv("DB_NAME"),
+                user=os.getenv("DB_USER"),
+                password=os.getenv("DB_PASSWORD")
+            )
+    except psycopg2.Error as e:
+        print(f"Database connection error: {e}")
+        return
     try:
         # creating cursor
         cur = db_connection.cursor()
+        #define the exact schema of the table
+        cols = ['id', 'symbol', 'name', 'image', 'current_price', 'market_cap', 'market_cap_rank', 'fully_diluted_valuation',
+        'total_volume', 'high_24h', 'low_24h', 'price_change_24h', 'price_change_percentage_24h', 'market_cap_change_24h', 'market_cap_change_percentage_24h', 'circulating_supply',
+        'total_supply', 'max_supply', 'ath', 'ath_change_percentage', 'ath_date', 'atl', 'atl_change_percentage', 'atl_date', 'roi_times', 'roi_currency', 'roi_percentage', 'last_updated', 'ingested_at']
         # converting dataframe to list of tuples for insertion
-        data_to_load = list(coins_df.itertuples(index=False, name=None))
+        data_to_load = list(coins_df[cols].itertuples(index=False, name=None))
         # upsert query to insert or update data based on the primary key (id)
         upsert_query = """
         INSERT INTO raw.coin_markets (id, symbol, name, image, current_price, market_cap, market_cap_rank, fully_diluted_valuation,
         total_volume, high_24h, low_24h, price_change_24h, price_change_percentage_24h, market_cap_change_24h, market_cap_change_percentage_24h, circulating_supply,
         total_supply, max_supply, ath, ath_change_percentage, ath_date, atl, atl_change_percentage, atl_date, roi_times, roi_currency, roi_percentage, last_updated, ingested_at)
-        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        VALUES ( %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         ON CONFLICT (id) DO UPDATE SET
         symbol = EXCLUDED.symbol,
         name = EXCLUDED.name,
@@ -99,4 +114,12 @@ def load_coin_markets(coins_df):
     db_connection.commit()
     db_connection.close()
 
- 
+# run all the functions
+if __name__ == "__main__":
+    print("Starting coin markets ingestion...")
+    coins = fetch_coin_markets()
+    print("Fetched coin markets data.")
+    coins_df = transform_coin_markets(coins)
+    print("Transformed coin markets data into DataFrame.")
+    load_coin_markets(coins_df)
+    print("Finished loading coin markets data into the database.")
