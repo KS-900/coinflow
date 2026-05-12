@@ -30,5 +30,7 @@ atl_date DATE NULL,
 roi_times NUMERIC NULL,
 roi_currency TEXT NULL,
 roi_percentage NUMERIC NULL,
-last_updated TIMESTAMP
+last_updated TIMESTAMP,
+/* TASK.md Phase 2: lineage for dedup / freshness in staging & dbt */
+_ingested_at TIMESTAMPTZ NULL
 );
