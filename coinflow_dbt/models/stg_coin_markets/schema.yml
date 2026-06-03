@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: coins_raw
+    schema: raw
+    description: raw crypo currency data of each coin in the market
+
+    tables:
+    - name: coin_markets
+
+models:
+  - name: stg_coin_markets
+
+    config:
+      materialized: table
+      

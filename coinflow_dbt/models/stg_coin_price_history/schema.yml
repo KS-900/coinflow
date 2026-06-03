@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: history_coins_raw
+    schema: raw
+    description: raw crypo currency history data of each coin in the market for the past 90 days
+
+    tables:
+    - name: coin_price_history
+
+models:
+  - name: stg_coin_price_history
+
+    config:
+      materialized: table
+      

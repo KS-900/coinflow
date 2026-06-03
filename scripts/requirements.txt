@@ -1,0 +1,6 @@
+# this file will hold all the dependencies for our pipline
+# we can install these dependencies using pip install -r requirements.txt
+pandas 
+requests 
+psycopg2-binary
+python-dotenv 

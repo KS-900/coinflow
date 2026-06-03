@@ -35,7 +35,7 @@ def _parse_coin_ids() -> list[str]:
     raw = os.getenv("COINGECKO_COIN_IDS", "").strip()
     if not raw:
         return list(DEFAULT_COIN_IDS)
-    return [c.strip() for c in raw.split(",") if c.strip()]
+    return [c.strip().lower() for c in raw.split(",") if c.strip()]
 
 
 def _dedupe_preserve_order(ids: list[str]) -> list[str]:

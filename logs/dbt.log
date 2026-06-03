@@ -1,0 +1,177 @@
+[0m12:20:10.664896 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000217CFBF1A90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000217CC7CCE10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000217D1CCBB10>]}
+
+
+============================== 12:20:10.889309 | 4a7b3388-b059-4d49-8c6c-3f64345203ac ==============================
+[0m12:20:10.889309 [info ] [MainThread]: Running with dbt=1.12.0-b1
+[0m12:20:10.890803 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'empty': 'None', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\KS\\.dbt', 'indirect_selection': 'eager', 'invocation_command': 'dbt init', 'use_colors': 'True', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m12:20:12.486684 [info ] [MainThread]: Creating dbt configuration folder at C:\Users\KS\.dbt
+[0m12:21:51.441125 [debug] [MainThread]: Starter project path: C:\Users\KS\Documents\Data Engineering Projects\coinflow\coinflow\Lib\site-packages\dbt\include\starter_project
+[0m12:21:51.594553 [info ] [MainThread]: Setting up your profile.
+[0m12:25:13.709977 [info ] [MainThread]: Profile coinflow_dbt written to C:\Users\KS\.dbt\profiles.yml using target's profile_template.yml and your supplied values.
+[0m12:25:13.756413 [info ] [MainThread]: Running dbt debug to validate the project...
+[0m12:25:13.757583 [info ] [MainThread]: dbt version: 1.12.0-b1
+[0m12:25:13.758256 [info ] [MainThread]: python version: 3.13.3
+[0m12:25:13.758887 [info ] [MainThread]: python path: C:\Users\KS\Documents\Data Engineering Projects\coinflow\coinflow\Scripts\python.exe
+[0m12:25:13.759540 [info ] [MainThread]: os info: Windows-10-10.0.19045-SP0
+[0m12:25:13.890238 [info ] [MainThread]: Using profiles dir at C:\Users\KS\.dbt
+[0m12:25:13.891128 [info ] [MainThread]: Using profiles.yml file at C:\Users\KS\.dbt\profiles.yml
+[0m12:25:13.892212 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\KS\Documents\Data Engineering Projects\coinflow\coinflow_dbt\dbt_project.yml
+[0m12:25:13.894056 [info ] [MainThread]: adapter type: postgres
+[0m12:25:13.894891 [info ] [MainThread]: adapter version: 1.10.0
+[0m12:25:14.097512 [info ] [MainThread]: Configuration:
+[0m12:25:14.099060 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m12:25:14.100340 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m12:25:14.101093 [info ] [MainThread]: Required dependencies:
+[0m12:25:14.101935 [debug] [MainThread]: Executing "git --help"
+[0m12:25:15.875446 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m12:25:15.876329 [debug] [MainThread]: STDERR: "b''"
+[0m12:25:15.876882 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m12:25:15.877696 [info ] [MainThread]: Connection:
+[0m12:25:15.878497 [info ] [MainThread]:   host: localhost
+[0m12:25:15.879305 [info ] [MainThread]:   port: 5432
+[0m12:25:15.880164 [info ] [MainThread]:   user: admin
+[0m12:25:15.881146 [info ] [MainThread]:   database: coinflow
+[0m12:25:15.882217 [info ] [MainThread]:   schema: staging
+[0m12:25:15.883129 [info ] [MainThread]:   connect_timeout: 10
+[0m12:25:15.884526 [info ] [MainThread]:   role: None
+[0m12:25:15.885717 [info ] [MainThread]:   search_path: None
+[0m12:25:15.886965 [info ] [MainThread]:   keepalives_idle: 0
+[0m12:25:15.888343 [info ] [MainThread]:   sslmode: None
+[0m12:25:15.889804 [info ] [MainThread]:   sslcert: None
+[0m12:25:15.892406 [info ] [MainThread]:   sslkey: None
+[0m12:25:15.894131 [info ] [MainThread]:   sslrootcert: None
+[0m12:25:15.895509 [info ] [MainThread]:   application_name: dbt
+[0m12:25:15.896812 [info ] [MainThread]:   retries: 1
+[0m12:25:15.898802 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m12:25:17.276056 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m12:25:18.631126 [debug] [MainThread]: Using postgres connection "debug"
+[0m12:25:18.631863 [debug] [MainThread]: On debug: select 1 as id
+[0m12:25:18.632748 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m12:25:19.325213 [debug] [MainThread]: SQL status: SELECT 1 in 0.692 seconds
+[0m12:25:19.331719 [debug] [MainThread]: On debug: Close
+[0m12:25:19.334698 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m12:25:19.339689 [info ] [MainThread]: [32mAll checks passed![0m
+[0m12:25:19.342598 [info ] [MainThread]: Your new dbt project "coinflow_dbt" was created!
+Initialized new project in C:\Users\KS\Documents\Data Engineering Projects\coinflow\coinflow_dbt\coinflow_dbt
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m12:25:19.350125 [debug] [MainThread]: Command `dbt init` succeeded at 12:25:19.349551 after 309.47 seconds
+[0m12:25:19.351954 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m12:25:19.353138 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000217D1B1F360>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000217D1B7F2F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000217D20CF350>]}
+[0m12:25:19.354709 [debug] [MainThread]: Flushing usage events
+[0m12:25:21.423682 [debug] [MainThread]: An error was encountered while trying to flush usage events
+==================== 2026-06-02T06:41:30.190921Z | 019e8710-76ab-7c20-b80b-626f907edf5b ====================
+06:41:34.748728 [info ]: Installing dbt project and profile setup
+06:41:47.054409 [info ]: Info Created .vscode/extensions.json with dbt extension recommendation
+06:41:52.547530 [info ]: Success Project created successfully!
+06:41:52.565323 [info ]: Info Project name: jaffle_shop
+06:41:52.908286 [info ]: Info Project directory: jaffle_shop
+06:41:53.205485 [info ]: Info Setting up your profile...
+06:41:56.175418 [info ]: Loading ~/.dbt/profiles.yml
+06:42:21.354113 [info ]: Info Creating new profile...
+06:42:33.764063 [info ]: No dbt_cloud.yml found - proceeding without cloud pre-population
+07:00:24.859833 [info ]: Success Profile written to C:\Users\KS\.dbt\profiles.yml
+07:00:24.962202 [info ]: Validating profile inputs, adapters, and connection
+
+07:00:24.991746 [info ]: dbt-core 2.0.0-alpha.1
+07:00:25.865668 [info ]: Started loading project
+07:00:54.820839 [info ]: Loading ~/.dbt/profiles.yml
+07:01:01.141869 [info ]: Finished loading project [ 35.28s]
+07:01:01.721092 [error]: [InvalidConfig (dbt1005)]: The 'postgres' adapter is not yet supported by dbt Fusion. Supported adapters: snowflake, bigquery, databricks, redshift
+07:01:02.686695 [info ]: 
+==================== Execution Summary =====================
+Finished 'init' with 1 error [19m 32s]
+==================== 2026-06-02T07:02:24.597567Z | 019e8724-0231-7d13-96e6-bba915a9ba47 ====================
+07:02:24.598011 [info ]: Installing dbt project and profile setup
+07:02:24.753859 [info ]: Warning Directory 'jaffle_shop' already exists, using 'jaffle_shop_1' instead
+07:02:25.084351 [info ]: Info Created .vscode/extensions.json with dbt extension recommendation
+07:02:25.085211 [info ]: Success Project created successfully!
+07:02:25.085666 [info ]: Info Project name: jaffle_shop_1
+07:02:25.086153 [info ]: Info Project directory: jaffle_shop_1
+07:02:25.087122 [info ]: Info Setting up your profile...
+07:02:25.090437 [info ]: Loading ~/.dbt/profiles.yml
+07:02:25.101835 [info ]: Info Creating new profile...
+07:02:46.819772 [info ]: No dbt_cloud.yml found - proceeding without cloud pre-population
+==================== 2026-06-02T07:03:48.849494Z | 019e8725-4b54-72c2-b253-732536560906 ====================
+07:03:48.850019 [info ]: Installing dbt project and profile setup
+07:03:48.858946 [info ]: Warning Directory 'jaffle_shop' already exists, using 'jaffle_shop_2' instead
+07:03:49.500121 [info ]: Info Created .vscode/extensions.json with dbt extension recommendation
+07:03:49.501168 [info ]: Success Project created successfully!
+07:03:49.501782 [info ]: Info Project name: jaffle_shop_2
+07:03:49.502493 [info ]: Info Project directory: jaffle_shop_2
+07:03:49.503063 [info ]: Info Setting up your profile...
+07:03:49.504553 [info ]: Loading ~/.dbt/profiles.yml
+07:03:49.506326 [info ]: Info Creating new profile...
+07:04:04.197709 [info ]: No dbt_cloud.yml found - proceeding without cloud pre-population
+07:04:28.678590 [info ]: Success Profile written to C:\Users\KS\.dbt\profiles.yml
+07:04:28.679659 [info ]: Validating profile inputs, adapters, and connection
+
+07:04:28.680410 [info ]: dbt-core 2.0.0-alpha.1
+07:04:28.682220 [info ]: Started loading project
+07:04:28.761562 [info ]: Loading ~/.dbt/profiles.yml
+07:04:28.764642 [info ]: Finished loading project [  0.08s]
+07:04:28.771266 [error]: [InvalidConfig (dbt1005)]: The 'postgres' adapter is not yet supported by dbt Fusion. Supported adapters: snowflake, bigquery, databricks, redshift
+07:04:28.978799 [info ]: 
+==================== Execution Summary =====================
+Finished 'init' with 1 error [40.1s]
+[0m09:11:28.600376 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001FC34AFD6A0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001FC3472F750>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001FC375939D0>]}
+
+
+============================== 09:11:28.688037 | 886dd40f-a6d3-403a-b539-294f8400afb4 ==============================
+[0m09:11:28.688037 [info ] [MainThread]: Running with dbt=1.8.0
+[0m09:11:28.690260 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'profiles_dir': 'C:\\Users\\KS\\.dbt', 'log_path': 'logs', 'fail_fast': 'False', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt init', 'introspect': 'True', 'static_parser': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m09:11:41.323697 [debug] [MainThread]: Starter project path: C:\Users\KS\Documents\Data Engineering Projects\coinflow\coinflow_env\Lib\site-packages\dbt\include\starter_project
+[0m09:11:41.368360 [info ] [MainThread]: 
+Your new dbt project "coinflow_dbt" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m09:11:41.369787 [info ] [MainThread]: Setting up your profile.
+[0m09:15:17.561629 [info ] [MainThread]: Profile coinflow_dbt written to C:\Users\KS\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m09:15:17.565764 [debug] [MainThread]: Command `dbt init` succeeded at 09:15:17.565344 after 229.71 seconds
+[0m09:15:17.566990 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001FC377E3BB0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001FC378605F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001FC3770B680>]}
+[0m09:15:17.568105 [debug] [MainThread]: Flushing usage events
+[0m09:15:37.314248 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B52594D6A0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B52557F750>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B5283D39D0>]}
+
+
+============================== 09:15:37.325878 | adaaafe5-a16d-4fcd-a57d-b605760ee7e5 ==============================
+[0m09:15:37.325878 [info ] [MainThread]: Running with dbt=1.8.0
+[0m09:15:37.328222 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'profiles_dir': 'C:\\Users\\KS\\.dbt', 'log_path': 'logs', 'fail_fast': 'False', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'introspect': 'True', 'log_format': 'default', 'target_path': 'None', 'invocation_command': 'dbt debug', 'send_anonymous_usage_stats': 'True'}
+[0m09:15:37.393936 [info ] [MainThread]: dbt version: 1.8.0
+[0m09:15:37.401068 [info ] [MainThread]: python version: 3.13.3
+[0m09:15:37.403260 [info ] [MainThread]: python path: C:\Users\KS\Documents\Data Engineering Projects\coinflow\coinflow_env\Scripts\python.exe
+[0m09:15:37.409100 [info ] [MainThread]: os info: Windows-10-10.0.19045-SP0
+[0m09:15:37.764752 [info ] [MainThread]: Using profiles dir at C:\Users\KS\.dbt
+[0m09:15:37.766627 [info ] [MainThread]: Using profiles.yml file at C:\Users\KS\.dbt\profiles.yml
+[0m09:15:37.768378 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\KS\Documents\Data Engineering Projects\coinflow\dbt_project.yml
+[0m09:15:37.770264 [error] [MainThread]: Encountered an error:
+Internal Error
+  Profile should not be None if loading profile completed
+[0m09:15:37.775559 [debug] [MainThread]: Command `dbt debug` failed at 09:15:37.775070 after 1.01 seconds
+[0m09:15:37.777538 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B5288709D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B5288885F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B5286BDBF0>]}
+[0m09:15:37.779659 [debug] [MainThread]: Flushing usage events

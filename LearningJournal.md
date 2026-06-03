@@ -48,6 +48,25 @@ Manual Load with python script:
 11. close cursor 
 12. close connection
 
+.env file
+1. holds all the sensitive information
+2. API_KEY
+3. Database connection details
+
+requirements.txt
+
+Ingest_coin_markets.py
+1. Import all libraries needed
+2. load the getenv function
+3. create the get request wrapped in a try statment. Then after saves it in json format and returns the json data
+4. Create the transforming function where the data is saved into a pandas format. Create an injested at field. check for duplicates in the data from the api then drop the duplicates
+5. Create the load function that saves the data into the database. So we first need to connect to the database using the env file. After connecting to the database we move to using the insert function and also on conflict using the unique key we want to update if the id matches rather than inserting a new one it will update. 
+6. Commit 
+7. close connection
+8. run all functions using 'if __name__ == "__main__":'
+
+Ingest_coin_history.py
+1. Import all libraries needed
 
 Tech Stack:
 PostgresSQL
