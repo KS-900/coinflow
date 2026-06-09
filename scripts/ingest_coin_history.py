@@ -66,7 +66,7 @@ def _optional_demo_api_key() -> str | None:
 
 
 def _require_db_settings() -> dict[str, str]:
-    keys = ("DB_HOST", "DB_NAME", "DB_USER", "DB_PASSWORD")
+    keys = ("DB_HOST", "DB_NAME", "DB_USER", "DB_PASSWORD", "DB_PORT")
     missing = [k for k in keys if not os.getenv(k)]
     if missing:
         raise ValueError(f"Missing required env vars: {', '.join(missing)}")
@@ -158,6 +158,7 @@ def load_coin_price_history(rows: list[tuple]) -> None:
             database=settings["DB_NAME"],
             user=settings["DB_USER"],
             password=settings["DB_PASSWORD"],
+            port=settings["DB_PORT"],
         )
         cur = conn.cursor()
         # JSONB: psycopg2 adapts Json(); avoids fragile NUMERIC[][] rectangle rules.
