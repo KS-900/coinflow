@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: daily_metrics
+    schema: staging
+    description: staged crypo currency data of each coin in the market
+
+    tables:
+    - name: stg_coin_markets
+    - name: stg_coin_price_history
+    - description: staged crypo currency price history and coin market data of each coin in the market
+
+
+models:
+  - name: int_coin_daily_metrics
+    description: intermediate model that calculates daily price change % and 7-day moving average for each coin; serves as a source for final reporting models.
+
+    config:
+      materialized: table
+      description: joins market data with price history; calculates daily price change %, 7-day moving average.

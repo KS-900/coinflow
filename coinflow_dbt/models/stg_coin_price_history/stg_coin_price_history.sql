@@ -46,6 +46,24 @@ unpacked as (
                 with ordinality as t_inner
                 on t_inner.ordinality = p_inner.ordinality
     ) as p(elem, ord, m_elem, t_elem)
+),
+
+ranked as(
+	select 
+		coin_id,
+		cast(price_timestamp_raw as date) as coin_date,
+		price_value,
+		market_cap_value,
+		total_volume_value,
+		row_number() over(
+		partition by coin_id, extract(day from price_timestamp_raw)
+		order by price_timestamp_raw desc)
+		as row_num
+	from unpacked
 )
 
-select * from unpacked
+select 	
+	*
+from 
+	ranked 
+where row_num = 1

@@ -7,10 +7,13 @@ sources:
 
     tables:
     - name: coin_price_history
+    description: raw crypo currency price history data of each coin in the market for the past 90 days
 
 models:
   - name: stg_coin_price_history
+    description: staged crypo currency price history and coin market data of each coin in the market
 
     config:
       materialized: table
+      description: staged crypo currency price history and coin market data of each coin in the market
       
