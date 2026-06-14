@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: int_coin_daily_metrics
+    description: intermediate model that calculates daily price change % and 7-day moving average for each coin; serves as a source for final reporting models.
+
+    config:
+      materialized: table
+    columns:
+      - name: coin_id
+        description: unique identifier for each coin
+      - name: date_stamp
+        description: timestamp of the price record
+      - name: price_value
+        description: price of the coin on the given date
+      - name: market_cap_value
+        description: market capitalization of the coin on the given date
+      - name: total_volume_value
+        description: total trading volume of the coin on the given date
+      - name: name_of_coin  
+        description: name of the coin
+      - name: all_time_high
+        description: all-time high price of the coin
+      - name: all_time_high_date
+        description: date of the all-time high price
+      - name: all_time_low
+        description: all-time low price of the coin
+      - name: all_time_low_date
+        description: date of the all-time low price
+      - name: total_supply
+        description: total supply of the coin
+      - name: prev_day_price
+        description: price of the coin on the previous day
+      - name: daily_price_change_pcg
+        description: percentage change in price compared to the previous day
+      - name: moving_avg_7d
+        description: 7-day moving average of the coin's price
+    
