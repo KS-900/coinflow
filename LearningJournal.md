@@ -1,3 +1,7 @@
+Key Definitions:
+Ideompotency: When your code can be run multiple time and provide the same output no matter how many times it is run. One example outside of coding is pressing an elevator button. Pressing it once or ten times results in the same state — the elevator is called. Additional presses don't change anything.
+Grain: A grain is simply what 1 row in the database represents. Mostly this is a one line explination. One database can have multiple grains in one.
+
 .gitignore: In a '.gitignore' you put file extentions or folders of all files you do not want git to track. Keep in mind the file that hold either big data or sensitive information are the files you do not want git to keep track of.
 
 README.md: This is the file that guides other Users of the technical requirements of the program and how to use your program and all the testing credentials. This is also where the documentation and guide for your project lives.

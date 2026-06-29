@@ -23,7 +23,22 @@ from psycopg2.extras import Json
 # Defaults match TASK.md examples; override via env for Airflow / local runs
 # without editing code (12-factor style config).
 # ------------------------------------------------------------------------------
-DEFAULT_COIN_IDS = ("bitcoin", "ethereum", "solana")
+DEFAULT_COINS = ("bitcoin", "ethereum", "tether", "binancecoin", "usd-coin", "ripple", "solana", "tron", 
+                 "figure-heloc", "hyperliquid", "dogecoin", "usds", "leo-token", "rain", "zcash", "stellar", 
+                 "canton-network", "cardano", "monero", "chainlink", "whitebit-coin", "the-open-network", 
+                 "usd1-wlfi", "ethena-usd", "dai", "bitcoin-cash", "memecore", "hedera-hashgraph", 
+                 "labra-finance", "litecoin", "sui", "hashnote-usd", "avalanche-2", "near-protocol", 
+                 "paypal-usd", "shiba-inu", "crypto-com-chain", "tether-gold", "global-dollar-stablecoin-gds", 
+                 "blackrock-usd-institutional-digital-liquidity-fund", "ondo-us-dollar-yield", "bittensor", 
+                 "pax-gold", "ondo-finance", "mantle", "world-liberty-financial", "worldcoin", "ripple-usd", 
+                 "polkadot", "aster-2", "htx-dao", "uniswap", "okb", "falcon-financial", "pi-network", "usdd", 
+                 "sky", "bfusd", "internet-computer", "bitget-token", "audiera", "pepe", "morpho", 
+                 "ethereum-classic", "dexe", "usdtb", "eutbl", "united-states-dollar", "quant-network", 
+                 "blockchain-capital", "aave", "superstate", "cosmos", "siren-2", "kaspa", 
+                 "janus-henderson-anemoy-treasury-fund", "kucoin-shares", "render-token", "algorand", 
+                 "polygon-ecosystem", "nexo", "ethena", "stable-2", "venice-token", "just", "bianrensheng", 
+                 "gatechain-token", "xdce-crowd", "beldex", "flare-network", "filecoin", "gho", "injective-protocol", 
+                 "usual-usd", "aptos", "pump-fun", "ylds", "hash-2", "midnight-3", "jupiter-exchange")
 DEFAULT_CHART_DAYS = 90
 # CoinGecko free tier is ~10–30 calls/min; spacing requests avoids 429 bursts.
 DEFAULT_REQUEST_DELAY_SEC = 2.5
@@ -34,7 +49,7 @@ def _parse_coin_ids() -> list[str]:
     """Comma-separated COINGECKO_COIN_IDS overrides DEFAULT_COIN_IDS."""
     raw = os.getenv("COINGECKO_COIN_IDS", "").strip()
     if not raw:
-        return list(DEFAULT_COIN_IDS)
+        return list(DEFAULT_COINS)
     return [c.strip().lower() for c in raw.split(",") if c.strip()]
 
 

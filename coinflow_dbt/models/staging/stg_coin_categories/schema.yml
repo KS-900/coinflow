@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: categories_raw
+    schema: raw
+    description: raw crypto currency category data in the market
+
+    tables:
+    - name: coin_categories
+      description: raw crypto currency category data in the market
+
+models:
+  - name: stg_coin_categories
+    description: staged crypto currency cateegory data in the market
+
+    config:
+      materialized: table
+      description: staged crypto currency category data in the market

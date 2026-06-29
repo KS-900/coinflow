@@ -1,0 +1,12 @@
+with raw_categories as (
+    select 
+        cast(trim(coin_id) as text),
+        cast(trim(category) as text),
+        cast(ingested_at as timestamp)
+    from 
+        {{source('categories_raw', 'coin_categories') }} --coinflow.raw.coin_categories
+)
+select
+    *
+from 
+    raw_categories
