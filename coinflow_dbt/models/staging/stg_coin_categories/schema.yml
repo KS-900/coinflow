@@ -6,7 +6,7 @@ sources:
     description: raw crypto currency category data in the market
 
     tables:
-    - name: coin_categories
+    - name: coins_categories
       description: raw crypto currency category data in the market
 
 models:
