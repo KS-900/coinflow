@@ -48,22 +48,41 @@ unpacked as (
     ) as p(elem, ord, m_elem, t_elem)
 ),
 
-ranked as(
-	select 
-		coin_id,
-		cast(price_timestamp_raw as date) as coin_date,
-		price_value,
-		market_cap_value,
-		total_volume_value,
-		row_number() over(
-		partition by coin_id, extract(day from price_timestamp_raw)
-		order by price_timestamp_raw desc)
-		as row_num
-	from unpacked
-)
-
-select 	
-	*
-from 
-	ranked 
-where row_num = 1
+select distinct
+    coin_id,
+    cast(price_timestamp_raw as date) as coin_date,
+    
+    -- Open: rank by timestamp ASC, pick row 1
+    FIRST_VALUE(price_value) OVER (
+        PARTITION BY coin_id, cast(price_timestamp_raw as date) 
+        ORDER BY price_timestamp_raw ASC
+        ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING
+    ) AS open_price,
+    
+    -- Close: rank by timestamp DESC, pick row 1
+    FIRST_VALUE(price_value) OVER (
+        PARTITION BY coin_id, cast(price_timestamp_raw as date) 
+        ORDER BY price_timestamp_raw DESC
+        ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING
+    ) AS close_price,
+    
+    -- High: max across the partition
+    MAX(price_value) OVER (
+        PARTITION BY coin_id, cast(price_timestamp_raw as date) 
+    ) AS high_price,
+    
+    -- Low: min across the partition
+	MIN(price_value) OVER (
+        PARTITION BY coin_id, cast(price_timestamp_raw as date) 
+    ) AS low_price, 
+    FIRST_VALUE(market_cap_value) OVER (
+        PARTITION BY coin_id, cast(price_timestamp_raw as date) 
+        ORDER BY price_timestamp_raw DESC
+        ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING
+    ) AS close_market_cap,
+    FIRST_VALUE(total_volume_value) OVER (
+        PARTITION BY coin_id, cast(price_timestamp_raw as date) 
+        ORDER BY price_timestamp_raw DESC
+        ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING
+    ) AS close_total_volume
+FROM unpacked
