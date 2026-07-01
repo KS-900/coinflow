@@ -1,0 +1,25 @@
+version: 2
+
+columns:
+  - name: coin_id
+    description: unique identifier for each coin
+  - name: name_of_coin
+    description: name of the coin
+  - name: trade_date
+    description: timestamp of the price record
+  - name: open_price_usd
+    description: opening price of the coin for the day
+  - name: close_price_usd
+    description: closing price of the coin for the day
+  - name: high_price_usd
+    description: highest price of the coin for the day
+  - name: low_price_usd
+    description: lowest price of the coin for the day
+  - name: volume
+    description: total trading volume of the coin at the close of the day
+  - name: market_cap
+    description: market capitalization of the coin at the close of the day
+  - name: daily_price_change_pct
+    description: percentage change in price from the previous day to the current day
+  - name: moving_avg_7d_price
+    description: 7-day moving average of the closing price for the coin
