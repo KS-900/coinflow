@@ -56,7 +56,37 @@ final_metrics as(
     		rows between 6 preceding and current row
 		),2) AS moving_avg_7d
 	from metrics_data hi
-)	
+),
+final_table as(
+	select 
+		coin_id,
+		name_of_coin,
+		date_stamp,
+		close_price,
+		close_market_cap,
+		close_total_volume,
+		prev_day_price,
+		daily_price_change_pcg,
+		moving_avg_7d,
+		row_number() over(
+			partition by coin_id
+			order by date_stamp desc) as row_num
+	from final_metrics
+), 
+final as(
+	select 
+		coin_id,
+		name_of_coin,
+		date_stamp,
+		close_price,
+		close_market_cap,
+		close_total_volume,
+		prev_day_price,
+		daily_price_change_pcg,
+		moving_avg_7d
+	from final_table
+	where row_num = 1
+)
 select 
 	coin_id ,
 	name_of_coin,
@@ -68,4 +98,4 @@ select
 	daily_price_change_pcg ,
 	moving_avg_7d 
 from 
-	final_metrics
+	final
