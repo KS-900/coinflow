@@ -1,0 +1,13 @@
+version: 2
+
+columns:
+  - name: coin_id
+    description: unique identifier for each coin
+  - name: coin_name
+    description: name of the coin
+  - name: symbol
+    description: symbol of the coin
+  - name: category
+    description: category of the coin
+  - name: first_seen_date
+    description: the date when the coin was first seen in the price history data
