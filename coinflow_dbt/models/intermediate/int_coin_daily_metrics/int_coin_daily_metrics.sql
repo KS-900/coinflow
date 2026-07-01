@@ -17,27 +17,25 @@ history_info as(
 	select 
 		coin_id,
 		coin_date as date_stamp,
-		price_value,
-		market_cap_value,
-		total_volume_value
+		open_price,
+		close_price,
+		high_price,
+		low_price,
+		close_market_cap,
+		close_total_volume
 	from price_history_7d phd
 ),
 market_info as(
 	select 
 		name_id, 
-		scm.name_of_coin,
-		scm.all_time_high ,
-		scm.all_time_high_date ,
-		scm.all_time_low ,
-		scm.all_time_low_date ,
-		scm.total_supply
+		scm.name_of_coin
 	from 
 		{{ref('stg_coin_markets') }} scm 
 ),
 metrics_data as(
 	select 
 		*,
-		lag(hi.price_value,1,null) over(
+		lag(hi.close_price,1,null) over(
 			partition by hi.coin_id
 			order by hi.date_stamp asc ) as prev_day_price
 	from history_info hi
@@ -49,27 +47,23 @@ final_metrics as(
 		*,
 		case
 			when prev_day_price is null then null
-			else round(((price_value - prev_day_price)/prev_day_price)*100, 2)
+			when prev_day_price = 0 then null
+			else round(((hi.close_price - prev_day_price)/prev_day_price)*100, 2)
 		end as daily_price_change_pcg,
-		round(avg(price_value) OVER (
-    		partition by coin_id
-    		order by date_stamp asc
+		round(avg(hi.close_price) OVER (
+    		partition by hi.coin_id
+    		order by hi.date_stamp asc
     		rows between 6 preceding and current row
 		),2) AS moving_avg_7d
-	from metrics_data
+	from metrics_data hi
 )	
 select 
 	coin_id ,
+	name_of_coin,
 	date_stamp ,
-	price_value ,
-	market_cap_value ,
-	total_volume_value ,
-	name_of_coin ,
-	all_time_high ,
-	all_time_high_date ,
-	all_time_low ,
-	all_time_low_date ,
-	total_supply ,
+	close_price ,
+	close_market_cap ,
+	close_total_volume ,
 	prev_day_price ,
 	daily_price_change_pcg ,
 	moving_avg_7d 
