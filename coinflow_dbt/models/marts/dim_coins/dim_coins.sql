@@ -16,7 +16,7 @@ coin_symbol as(
 ),
 first_seen_date as(
 	select 
-		scph.coin_id ,
+		coin_id ,
 		min(coin_date) as first_seen_date
 	from 
 		{{ref('stg_coin_price_history')}}

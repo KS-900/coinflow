@@ -1,0 +1,13 @@
+version: 2
+
+columns:
+  - name: date_stamp
+    description: the date of the market summary
+  - name: total_market_cap
+    description: the total market capitalization of all coins on that date
+  - name: top_gainer
+    description: the coin_id of the coin with the highest daily price change percentage on that date
+  - name: top_loser
+    description: the coin_id of the coin with the lowest daily price change percentage on that date
+  - name: avg_market_volume
+    description: the average market volume of all coins on that date

@@ -46,7 +46,7 @@ final_metrics as(
 	select 
 		*,
 		case
-			when prev_day_price is null then null
+			when prev_day_price is null then 0
 			when prev_day_price = 0 then null
 			else round(((hi.close_price - prev_day_price)/prev_day_price)*100, 2)
 		end as daily_price_change_pcg,
