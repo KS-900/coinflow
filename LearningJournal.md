@@ -75,3 +75,20 @@ Ingest_coin_history.py
 Tech Stack:
 PostgresSQL
 Python
+
+# dbt test#
+this is the table i use for dbt built in tests
+Model	unique	not_null (specific cols)	accepted_values	relationships (to → column)
+stg_coin_markets	name_id	name_id, ???	???	(none — top of DAG)
+stg_coin_price_history	(coin_id, coin_date)	???	—	coin_id → stg_coin_markets.name_id
+int_coin_daily_metrics	(coin_id, coin_date)	???	—	coin_id → ???
+int_coin_categories	(coin_id, category)	???	—	coin_id → ???
+dim_coins	???	???	—	(usually none — dims are terminal)
+fct_market_summary	date_stamp	???	—	(depends on dim_date)
+
+# Challanges #
+1. how to use unique on 2 fields in one table ?
+    dbt built-in unique won't work because it will only check one field in the table and we need two.
+    fix:
+
+    

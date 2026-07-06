@@ -6,18 +6,36 @@ models:
 
     config:
       materialized: table
+
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - coin_id
+            - category
+            - date_stamp
     columns:
       - name: coin_id
         description: unique identifier for each coin
+        tests:
+          - not_null
+          - relationships:
+              to: "{{ ref('stg_coin_markets') }}"
+              field: name_id
+      - name: category
+        description: classification or grouping the coin belongs to (e.g., DeFi, Layer 1, Meme)
+        tests:
+          - not_null
       - name: date_stamp
-        description: timestamp of the price record
+        description: date of the daily metric record
+        tests:
+          - not_null
       - name: price_value
         description: price of the coin on the given date
       - name: market_cap_value
         description: market capitalization of the coin on the given date
       - name: total_volume_value
         description: total trading volume of the coin on the given date
-      - name: name_of_coin  
+      - name: name_of_coin
         description: name of the coin
       - name: all_time_high
         description: all-time high price of the coin
@@ -33,5 +51,9 @@ models:
         description: price of the coin on the previous day
       - name: daily_price_change_pcg
         description: percentage change in price compared to the previous day
+        tests:
+          - not_null
       - name: moving_avg_7d
         description: 7-day moving average of the coin's price
+        tests:
+          - not_null

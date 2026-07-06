@@ -11,7 +11,7 @@ with raw_data as (
         market_caps,
         total_volumes,
         _ingested_at
-    from {{ source('history_coins_raw', 'coin_price_history') }}
+    from {{ source('history_coins_raw', 'coin_price_history') }}-- from raw.coin_price_history
     {% if is_incremental() %}
         where _ingested_at > (
             select max(_ingested_at) from {{ this }}

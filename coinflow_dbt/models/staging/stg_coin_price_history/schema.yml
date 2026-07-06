@@ -7,13 +7,51 @@ sources:
 
     tables:
     - name: coin_price_history
-    description: raw crypo currency price history data of each coin in the market for the past 90 days
+      description: raw crypo currency price history data of each coin in the market for the past 90 days
 
 models:
   - name: stg_coin_price_history
     description: staged crypo currency price history and coin market data of each coin in the market
-
+    
     config:
       materialized: table
-      description: staged crypo currency price history and coin market data of each coin in the market
-      
+
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - coin_id
+            - coin_date
+    columns:
+      - name: coin_id
+        description: unique identifier of the coin in the market
+        tests:
+          - not_null
+          - relationships:
+              to: "{{ref('stg_coin_markets')}}"
+              field: name_id
+      - name: coin_date
+        description: date of the coin price history record
+        tests:
+          - not_null
+      - name: open_price
+        description: opening price of the coin on that date
+      - name: high_price
+        description: highest price of the coin on that date
+        tests:
+          - not_null
+      - name: low_price
+        description: lowest price of the coin on that date
+        tests:
+          - not_null
+      - name: close_price 
+        description: closing price of the coin on that date
+        tests:
+          - not_null
+      - name: close_market_cap
+        description: total market capitalization of the coin on that date
+        tests:
+          - not_null
+      - name: close_total_volume
+        description: total trading volume of the coin on that date
+        tests:
+          - not_null

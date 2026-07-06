@@ -1,13 +1,30 @@
 version: 2
+models:
+  - name: fct_market_summary
+    description: fact model that summarizes the market data for all coins on a daily basis; serves as a source for final reporting models.
 
-columns:
-  - name: date_stamp
-    description: the date of the market summary
-  - name: total_market_cap
-    description: the total market capitalization of all coins on that date
-  - name: top_gainer
-    description: the coin_id of the coin with the highest daily price change percentage on that date
-  - name: top_loser
-    description: the coin_id of the coin with the lowest daily price change percentage on that date
-  - name: avg_market_volume
-    description: the average market volume of all coins on that date
+    config:
+      materialized: table
+      
+    columns:
+      - name: date_stamp
+        description: the date of the market summary
+        tests:
+          - unique
+          - not_null
+      - name: total_market_cap
+        description: the total market capitalization of all coins on that date
+        tests:
+          - not_null
+      - name: top_gainer
+        description: the coin_id of the coin with the highest daily price change percentage on that date
+        tests:
+          - not_null
+      - name: top_loser
+        description: the coin_id of the coin with the lowest daily price change percentage on that date
+        tests:
+          - not_null
+      - name: avg_market_volume
+        description: the average market volume of all coins on that date
+        tests:
+          - not_null

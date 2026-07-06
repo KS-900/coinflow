@@ -6,29 +6,56 @@ models:
 
     config:
       materialized: table
+
+    tests: 
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - coin_id
+            - date_stamp
     columns:
       - name: coin_id
         description: unique identifier for each coin
+        tests:
+          - not_null
+          - relationships:
+              to: "{{ref('stg_coin_price_history')}}"
+              field: coin_id
       - name: date_stamp
         description: timestamp of the price record
+        tests:
+          - not_null
       - name: name_of_coin
         description: name of the coin
       - name: open_price
         description: opening price of the coin for the day
       - name: close_price
         description: closing price of the coin for the day
+        tests:
+          - not_null
       - name: high_price
         description: highest price of the coin for the day
+        tests:
+          - not_null
       - name: low_price
         description: lowest price of the coin for the day
+        tests:
+          - not_null
       - name: close_market_cap
         description: market capitalization of the coin at the close of the day
+        tests:
+          - not_null
       - name: close_total_volume
         description: total trading volume of the coin at the close of the day
+        tests:
+          - not_null
       - name: prev_day_price
         description: closing price of the coin from the previous day
       - name: daily_price_change_pcg
         description: percentage change in price from the previous day to the current day
+        tests:
+          - not_null
       - name: moving_avg_7d
         description: 7-day moving average of the closing price for the coin
+        tests:
+          - not_null
     

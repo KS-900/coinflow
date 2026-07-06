@@ -13,6 +13,67 @@ models:
   - name: stg_coin_markets
     description: staged crypo currency market data of each coin in the market
 
-    config:
-      materialized: table
-      description: staged crypo currency market data of each coin in the market
+    columns:
+    - name: name_id
+      description: unique identifier of the coin in the market
+      tests:
+        - unique
+        - not_null
+    - name: symbol_name
+      description: symbol of the coin in the market
+      tests:
+        - not_null
+      config:
+        severity: warn
+    - name: name_of_coin
+      description: name of the coin in the market
+    - name: coin_image
+      description: image of the coin in the market
+    - name: current_price
+      description: current price of the coin in the market
+    - name: market_cap
+      description: market capitalization of the coin in the market
+    - name: market_cap_rank
+      description: market capitalization rank of the coin in the market
+    - name: fully_diluted_valuation
+      description: fully diluted valuation of the coin in the market
+    - name: total_volume
+      description: total volume of the coin in the market
+    - name: high_24h
+      description: highest price of the coin in the last 24 hours in the market 
+    - name: low_24h
+      description: lowest price of the coin in the last 24 hours in the market
+    - name: price_change_24h
+      description: price change of the coin in the last 24 hours in the market
+    - name: price_change_percentage_24h
+      description: price change percentage of the coin in the last 24 hours in the market
+    - name: market_cap_change_24h
+      description: market capitalization change of the coin in the last 24 hours in the market
+    - name: market_cap_change_percentage_24h
+      description: market capitalization change percentage of the coin in the last 24 hours in the market 
+    - name: circulating_supply
+      description: circulating supply of the coin in the market
+    - name: total_supply
+      description: total supply of the coin in the market
+    - name: max_supply  
+      description: maximum supply of the coin in the market
+    - name: all_time_high
+      description: all-time high price of the coin in the market
+    - name: all_time_high_change_percentage
+      description: all-time high price change percentage of the coin in the market
+    - name: all_time_high_date
+      description: all-time high price date of the coin in the market
+    - name: all_time_low
+      description: all-time low price of the coin in the market
+    - name: all_time_low_change_percentage  
+      description: all-time low price change percentage of the coin in the market
+    - name: all_time_low_date
+      description: all-time low price date of the coin in the market
+    - name: last_updated
+      description: last updated date of the coin in the market
+      tests:
+        - not_null
+    - name: ingested_at
+      description: ingested date of the coin in the market
+      tests:
+        - not_null

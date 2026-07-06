@@ -1,13 +1,33 @@
 version: 2
+models:
+  - name: dim_coins
+    description: dimension model that provides detailed information about each coin; serves as a source for final reporting models.
 
-columns:
-  - name: coin_id
-    description: unique identifier for each coin
-  - name: coin_name
-    description: name of the coin
-  - name: symbol
-    description: symbol of the coin
-  - name: category
-    description: category of the coin
-  - name: first_seen_date
-    description: the date when the coin was first seen in the price history data
+    config:
+      materialized: table
+      
+    tests: 
+      dbt_utils.unique_combination_of_columns:
+        combination_of_columns:
+          - coin_id
+          - category
+    columns:
+      - name: coin_id
+        description: unique identifier for each coin
+        tests:
+          - not_null
+          - relationships:
+              to: "{{ref('stg_coin_markets')}}"
+              field: name_id
+      - name: coin_name
+        description: name of the coin
+      - name: symbol
+        description: symbol of the coin
+      - name: category
+        description: category of the coin
+        tests:
+          - not_null
+      - name: first_seen_date
+        description: the date when the coin was first seen in the price history data
+        tests:
+          - not_null
