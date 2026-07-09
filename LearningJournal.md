@@ -89,6 +89,6 @@ fct_market_summary	date_stamp	???	—	(depends on dim_date)
 # Challanges #
 1. how to use unique on 2 fields in one table ?
     dbt built-in unique won't work because it will only check one field in the table and we need two.
-    fix:
+    fix: use dbt_utils
 
     

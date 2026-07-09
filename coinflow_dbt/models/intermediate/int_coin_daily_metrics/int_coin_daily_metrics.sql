@@ -69,7 +69,10 @@ final_table as(
 		close_market_cap,
 		close_total_volume,
 		prev_day_price,
-		daily_price_change_pcg,
+		case
+			when daily_price_change_pcg is null then 0
+			else daily_price_change_pcg
+		end as daily_price_change_pcg,
 		moving_avg_7d,
 		row_number() over(
 			partition by coin_id

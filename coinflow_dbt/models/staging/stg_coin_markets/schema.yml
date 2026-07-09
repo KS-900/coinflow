@@ -16,12 +16,12 @@ models:
     columns:
     - name: name_id
       description: unique identifier of the coin in the market
-      tests:
+      data_tests:
         - unique
         - not_null
     - name: symbol_name
       description: symbol of the coin in the market
-      tests:
+      data_tests:
         - not_null
       config:
         severity: warn
@@ -71,9 +71,9 @@ models:
       description: all-time low price date of the coin in the market
     - name: last_updated
       description: last updated date of the coin in the market
-      tests:
+      data_tests:
         - not_null
     - name: ingested_at
       description: ingested date of the coin in the market
-      tests:
+      data_tests:
         - not_null

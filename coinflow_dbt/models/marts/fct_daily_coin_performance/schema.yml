@@ -6,15 +6,15 @@ models:
     config:
       materialized: table
       
-    tests: 
-      dbt_utils.unique_combination_of_columns:
-        combination_of_columns:
-          - coin_id
-          - trade_date
+    data_tests: 
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - coin_id
+            - trade_date
     columns:
       - name: coin_id
         description: unique identifier for each coin
-        tests:
+        data_tests:
           - not_null
           - relationships:
               to: "{{ref('int_coin_daily_metrics')}}"
@@ -23,21 +23,36 @@ models:
         description: name of the coin
       - name: trade_date
         description: timestamp of the price record
-        tests:
+        data_tests:
           - not_null
       - name: open_price_usd
         description: opening price of the coin for the day
       - name: close_price_usd
         description: closing price of the coin for the day
+        data_tests:
+          - not_null
       - name: high_price_usd
         description: highest price of the coin for the day
+        data_tests:
+          - not_null
       - name: low_price_usd
         description: lowest price of the coin for the day
+        data_tests:
+          - not_null
       - name: volume
         description: total trading volume of the coin at the close of the day
+        data_tests:
+          - not_null
       - name: market_cap
         description: market capitalization of the coin at the close of the day
+        data_tests:
+          - not_null
+          - is_positive
       - name: daily_price_change_pct
         description: percentage change in price from the previous day to the current day
+        data_tests:
+          - not_null
       - name: moving_avg_7d_price
         description: 7-day moving average of the closing price for the coin
+        data_tests:
+          - not_null

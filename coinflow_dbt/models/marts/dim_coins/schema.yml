@@ -6,15 +6,15 @@ models:
     config:
       materialized: table
       
-    tests: 
-      dbt_utils.unique_combination_of_columns:
-        combination_of_columns:
-          - coin_id
-          - category
+    data_tests: 
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - coin_id
+            - category
     columns:
       - name: coin_id
         description: unique identifier for each coin
-        tests:
+        data_tests:
           - not_null
           - relationships:
               to: "{{ref('stg_coin_markets')}}"
@@ -25,9 +25,9 @@ models:
         description: symbol of the coin
       - name: category
         description: category of the coin
-        tests:
+        data_tests:
           - not_null
       - name: first_seen_date
         description: the date when the coin was first seen in the price history data
-        tests:
+        data_tests:
           - not_null

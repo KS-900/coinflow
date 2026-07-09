@@ -9,22 +9,23 @@ models:
     columns:
       - name: date_stamp
         description: the date of the market summary
-        tests:
+        data_tests:
           - unique
           - not_null
       - name: total_market_cap
         description: the total market capitalization of all coins on that date
-        tests:
+        data_ tests:
           - not_null
+          - is_positive
       - name: top_gainer
         description: the coin_id of the coin with the highest daily price change percentage on that date
-        tests:
+        data_tests:
           - not_null
       - name: top_loser
         description: the coin_id of the coin with the lowest daily price change percentage on that date
-        tests:
+        data_tests:
           - not_null
-      - name: avg_market_volume
+      - name: average_volume
         description: the average market volume of all coins on that date
-        tests:
+        data_tests:
           - not_null
