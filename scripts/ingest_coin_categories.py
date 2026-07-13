@@ -140,7 +140,7 @@ def _fetch_all_coins_and_categories(
     session = requests.Session()  # Use a session for connection pooling
     for i, coin_id in enumerate(coin_ids):
         print(f"Fetching data for coin {i + 1}/{len(coin_ids)}: {coin_id}")
-        coin_data = _fetch_coin_and_category_data(session, _base_url(), id=coin_id)
+        coin_data = _fetch_coin_and_category_data(session, id=coin_id)
         if coin_data is not None:
             data[coin_id] = coin_data
         else:
@@ -234,3 +234,6 @@ def main():
         print(f"Error loading data into database: {e}")
         return
     print("Data ingestion completed successfully.")
+
+if __name__ == "__main__":
+    main()
