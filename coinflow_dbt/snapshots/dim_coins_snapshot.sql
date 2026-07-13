@@ -2,10 +2,10 @@
     {{
         config(
             target_schema='snapshots',
-            unique_key='id',
+            unique_key='coin_id',
             strategy='check',
-            check_cols=['name', 'symbol', 'market_cap', 'price_usd', 'volume_24h', 'circulating_supply'],
-            updated_at='last_updated'
+            check_cols=['coin_id', 'name_of_coin', 'symbol', 'category', 'first_seen_date'],
+            invalidate_hard_deletes=True
         )
     }}
 
