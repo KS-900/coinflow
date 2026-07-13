@@ -163,7 +163,7 @@ def load_coins_with_categories_to_database(data: dict[str, dict]):
     
     settings = _require_db_settings()
     new_data = []
-    ingested_at = datetime.datetime.now(datetime.timezone.utc)  # Current UTC timestamp for ingested_at
+    _ingested_at = datetime.datetime.now(datetime.timezone.utc)  # Current UTC timestamp for _ingested_at
     conn = None
     try:
         conn= psycopg2.connect(
@@ -183,7 +183,7 @@ def load_coins_with_categories_to_database(data: dict[str, dict]):
                 print(f"Skipping coin {coin_id} due to missing id or categories.")
                 continue
             for category in categories:
-                new_data.append((new_coin_id, category, ingested_at))
+                new_data.append((new_coin_id, category, _ingested_at))
             if not new_data:
                 print(f"No categories found for coin {coin_id}. Skipping insertion.")
                 continue
@@ -193,16 +193,16 @@ def load_coins_with_categories_to_database(data: dict[str, dict]):
             CREATE TABLE IF NOT EXISTS raw.coins_categories (
                 coin_id TEXT NOT NULL,
                 category TEXT NOT NULL,
-                ingested_at TIMESTAMPTZ NOT NULL,
+                _ingested_at TIMESTAMPTZ NOT NULL,
                 PRIMARY KEY (coin_id, category)
             );
             """
         )
         insert_query = """
-            INSERT INTO raw.coins_categories (coin_id, category, ingested_at)
+            INSERT INTO raw.coins_categories (coin_id, category, _ingested_at)
             VALUES (%s, %s, %s)
             ON CONFLICT (coin_id, category) DO UPDATE SET 
-                ingested_at = EXCLUDED.ingested_at;
+                _ingested_at = EXCLUDED._ingested_at;
         """
         cur.executemany(insert_query, new_data)
         conn.commit()

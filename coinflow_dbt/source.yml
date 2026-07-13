@@ -1,0 +1,20 @@
+sources:
+  - name: history_coins_raw
+    schema: raw
+    description: "Raw data from CoinGecko API"
+
+    loaded_at_field: _ingested_at
+    freshness:
+      warn_after: {count: 12, period: hour}
+      error_after: {count: 24, period: hour}
+    
+    tables:
+      - name: coins_categories
+        description: "Coin categories data from CoinGecko API"
+        freshness:
+          warn_after: {count: 3, period: day}
+          error_after: {count: 7, period: day}
+      - name: coins_markets
+        description: "Coin market data from CoinGecko API"
+      - name: coins_price_history
+        description: "Coin price history data from CoinGecko API"

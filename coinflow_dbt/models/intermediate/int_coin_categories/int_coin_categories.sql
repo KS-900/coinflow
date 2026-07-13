@@ -8,7 +8,7 @@ categories as(
 	select 
 		coin_id as id_coin,
 		category,
-		ingested_at as category_ingested_at
+		_ingested_at as category_ingested_at
 	from 
 		{{ref('stg_coin_categories') }} scc 
 ),
