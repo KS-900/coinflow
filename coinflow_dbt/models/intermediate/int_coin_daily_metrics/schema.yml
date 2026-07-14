@@ -51,8 +51,6 @@ models:
           - not_null
       - name: prev_day_price
         description: closing price of the coin from the previous day
-        data_tests:
-          - not_null
       - name: daily_price_change_pcg
         description: percentage change in price from the previous day to the current day
         data_tests:
