@@ -1,13 +1,14 @@
 {{ config(
     materialized='incremental',
     unique_key=['coin_id', 'coin_date'],
-    incremental_strategy='delete+insert'
+    incremental_strategy='merge'
 ) }}
 
 {% if is_incremental() %}
 with max_ingested as (
-    select max(_ingested_at) as max_ingested_at
+    select coin_id, max(_ingested_at) as max_ingested_at
     from {{ this }}
+    group by coin_id
 ),
 {% else %}
 with
@@ -22,8 +23,8 @@ raw_data as (
         r._ingested_at
     from {{ source('history_coins_raw', 'coin_price_history') }} r
     {% if is_incremental() %}
-    cross join max_ingested m
-    where r._ingested_at > m.max_ingested_at
+    left join max_ingested m on r.coin_id = m.coin_id
+    where m.coin_id is null or r._ingested_at > m.max_ingested_at
     {% endif %}
 ),
 
