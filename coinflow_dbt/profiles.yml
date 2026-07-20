@@ -1,0 +1,12 @@
+coinflow_dbt:
+  outputs:
+    dev:
+      dbname: coinflow
+      host: database
+      pass: admin123
+      port: 5432
+      schema: staging
+      threads: 1
+      type: postgres
+      user: admin
+  target: dev

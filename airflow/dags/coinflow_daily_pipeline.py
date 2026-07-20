@@ -19,7 +19,7 @@ with DAG(
     'coinflow_daily_pipeline',          # Set the DAG ID
     default_args=default_args,          # Set the default arguments for the DAG from the dictionary defined above
     description='A daily pipeline for CoinFlow data processing',    # Provide a description for the DAG
-    schedule='@daily',                      # Set the schedule to run daily
+    schedule='0 6 * * *' ,                      # Set the schedule to run daily
     start_date=datetime(2026, 7, 10),       # Set the start date for the DAG
     catchup=False,          # Set to False to avoid running past dates when the DAG is first deployed
     tags=['coinflow'],      # Add a tag for easier identification in the Airflow UI
