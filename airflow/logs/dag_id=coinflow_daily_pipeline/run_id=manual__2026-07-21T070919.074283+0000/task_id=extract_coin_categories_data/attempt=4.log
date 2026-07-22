@@ -1,0 +1,339 @@
+[2026-07-21T09:03:12.832+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-07-21T09:03:12.936+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: coinflow_daily_pipeline.extract_coin_categories_data manual__2026-07-21T07:09:19.074283+00:00 [queued]>
+[2026-07-21T09:03:12.955+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: coinflow_daily_pipeline.extract_coin_categories_data manual__2026-07-21T07:09:19.074283+00:00 [queued]>
+[2026-07-21T09:03:12.957+0000] {taskinstance.py:2306} INFO - Starting attempt 4 of 4
+[2026-07-21T09:03:13.049+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): extract_coin_categories_data> on 2026-07-21 07:09:19.074283+00:00
+[2026-07-21T09:03:13.063+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'coinflow_daily_pipeline', 'extract_coin_categories_data', 'manual__2026-07-21T07:09:19.074283+00:00', '--job-id', '16', '--raw', '--subdir', 'DAGS_FOLDER/coinflow_daily_pipeline.py', '--cfg-path', '/tmp/tmpn4e2azcf']
+[2026-07-21T09:03:13.071+0000] {standard_task_runner.py:91} INFO - Job 16: Subtask extract_coin_categories_data
+[2026-07-21T09:03:13.075+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=282) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-21T09:03:13.083+0000] {standard_task_runner.py:64} INFO - Started process 283 to run task
+[2026-07-21T09:03:13.296+0000] {task_command.py:426} INFO - Running <TaskInstance: coinflow_daily_pipeline.extract_coin_categories_data manual__2026-07-21T07:09:19.074283+00:00 [running]> on host b2d67a8b1605
+[2026-07-21T09:03:13.622+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='coinflow_daily_pipeline' AIRFLOW_CTX_TASK_ID='extract_coin_categories_data' AIRFLOW_CTX_EXECUTION_DATE='2026-07-21T07:09:19.074283+00:00' AIRFLOW_CTX_TRY_NUMBER='4' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-07-21T07:09:19.074283+00:00'
+[2026-07-21T09:03:13.624+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-07-21T09:03:14.132+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-07-21T09:03:14.134+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/scripts/ingest_coin_categories.py']
+[2026-07-21T09:03:14.154+0000] {subprocess.py:86} INFO - Output:
+[2026-07-21T09:14:40.098+0000] {subprocess.py:93} INFO - Fetching data for 100 coins with a delay of 2.5 seconds between requests.
+[2026-07-21T09:14:40.100+0000] {subprocess.py:93} INFO - Fetching data for coin 1/100: bitcoin
+[2026-07-21T09:14:40.101+0000] {subprocess.py:93} INFO - Fetched data for coin: bitcoin (attempt 1/5)
+[2026-07-21T09:14:40.101+0000] {subprocess.py:93} INFO - Fetching data for coin 2/100: ethereum
+[2026-07-21T09:14:40.102+0000] {subprocess.py:93} INFO - Fetched data for coin: ethereum (attempt 1/5)
+[2026-07-21T09:14:40.103+0000] {subprocess.py:93} INFO - Fetching data for coin 3/100: tether
+[2026-07-21T09:14:40.104+0000] {subprocess.py:93} INFO - Fetched data for coin: tether (attempt 1/5)
+[2026-07-21T09:14:40.105+0000] {subprocess.py:93} INFO - Fetching data for coin 4/100: binancecoin
+[2026-07-21T09:14:40.106+0000] {subprocess.py:93} INFO - Fetched data for coin: binancecoin (attempt 1/5)
+[2026-07-21T09:14:40.107+0000] {subprocess.py:93} INFO - Fetching data for coin 5/100: usd-coin
+[2026-07-21T09:14:40.107+0000] {subprocess.py:93} INFO - Fetched data for coin: usd-coin (attempt 1/5)
+[2026-07-21T09:14:40.108+0000] {subprocess.py:93} INFO - Fetching data for coin 6/100: ripple
+[2026-07-21T09:14:40.109+0000] {subprocess.py:93} INFO - Fetched data for coin: ripple (attempt 1/5)
+[2026-07-21T09:14:40.110+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: ripple (attempt 1/5). Waiting for 60 seconds before retrying...
+[2026-07-21T09:14:40.111+0000] {subprocess.py:93} INFO - Fetched data for coin: ripple (attempt 2/5)
+[2026-07-21T09:14:40.112+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: ripple (attempt 2/5). Waiting for 1 seconds before retrying...
+[2026-07-21T09:14:40.112+0000] {subprocess.py:93} INFO - Fetched data for coin: ripple (attempt 3/5)
+[2026-07-21T09:14:40.113+0000] {subprocess.py:93} INFO - Fetching data for coin 7/100: solana
+[2026-07-21T09:14:40.114+0000] {subprocess.py:93} INFO - Fetched data for coin: solana (attempt 1/5)
+[2026-07-21T09:14:40.115+0000] {subprocess.py:93} INFO - Fetching data for coin 8/100: tron
+[2026-07-21T09:14:40.116+0000] {subprocess.py:93} INFO - Fetched data for coin: tron (attempt 1/5)
+[2026-07-21T09:14:40.116+0000] {subprocess.py:93} INFO - Fetching data for coin 9/100: figure-heloc
+[2026-07-21T09:14:40.117+0000] {subprocess.py:93} INFO - Fetched data for coin: figure-heloc (attempt 1/5)
+[2026-07-21T09:14:40.118+0000] {subprocess.py:93} INFO - Fetching data for coin 10/100: hyperliquid
+[2026-07-21T09:14:40.118+0000] {subprocess.py:93} INFO - Fetched data for coin: hyperliquid (attempt 1/5)
+[2026-07-21T09:14:40.119+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: hyperliquid (attempt 1/5). Waiting for 60 seconds before retrying...
+[2026-07-21T09:14:40.120+0000] {subprocess.py:93} INFO - Fetched data for coin: hyperliquid (attempt 2/5)
+[2026-07-21T09:14:40.121+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: hyperliquid (attempt 2/5). Waiting for 1 seconds before retrying...
+[2026-07-21T09:14:40.122+0000] {subprocess.py:93} INFO - Fetched data for coin: hyperliquid (attempt 3/5)
+[2026-07-21T09:14:40.122+0000] {subprocess.py:93} INFO - Fetching data for coin 11/100: dogecoin
+[2026-07-21T09:14:40.123+0000] {subprocess.py:93} INFO - Fetched data for coin: dogecoin (attempt 1/5)
+[2026-07-21T09:14:40.124+0000] {subprocess.py:93} INFO - Fetching data for coin 12/100: usds
+[2026-07-21T09:14:40.125+0000] {subprocess.py:93} INFO - Fetched data for coin: usds (attempt 1/5)
+[2026-07-21T09:14:40.126+0000] {subprocess.py:93} INFO - Fetching data for coin 13/100: leo-token
+[2026-07-21T09:14:40.126+0000] {subprocess.py:93} INFO - Fetched data for coin: leo-token (attempt 1/5)
+[2026-07-21T09:14:40.127+0000] {subprocess.py:93} INFO - Fetching data for coin 14/100: rain
+[2026-07-21T09:14:40.128+0000] {subprocess.py:93} INFO - Fetched data for coin: rain (attempt 1/5)
+[2026-07-21T09:14:40.129+0000] {subprocess.py:93} INFO - Fetching data for coin 15/100: zcash
+[2026-07-21T09:14:40.129+0000] {subprocess.py:93} INFO - Fetched data for coin: zcash (attempt 1/5)
+[2026-07-21T09:14:40.130+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: zcash (attempt 1/5). Waiting for 60 seconds before retrying...
+[2026-07-21T09:14:40.131+0000] {subprocess.py:93} INFO - Fetched data for coin: zcash (attempt 2/5)
+[2026-07-21T09:14:40.131+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: zcash (attempt 2/5). Waiting for 1 seconds before retrying...
+[2026-07-21T09:14:40.132+0000] {subprocess.py:93} INFO - Fetched data for coin: zcash (attempt 3/5)
+[2026-07-21T09:14:40.133+0000] {subprocess.py:93} INFO - Fetching data for coin 16/100: stellar
+[2026-07-21T09:14:40.134+0000] {subprocess.py:93} INFO - Fetched data for coin: stellar (attempt 1/5)
+[2026-07-21T09:14:40.134+0000] {subprocess.py:93} INFO - Fetching data for coin 17/100: canton-network
+[2026-07-21T09:14:40.135+0000] {subprocess.py:93} INFO - Fetched data for coin: canton-network (attempt 1/5)
+[2026-07-21T09:14:40.136+0000] {subprocess.py:93} INFO - Fetching data for coin 18/100: cardano
+[2026-07-21T09:14:40.137+0000] {subprocess.py:93} INFO - Fetched data for coin: cardano (attempt 1/5)
+[2026-07-21T09:14:40.138+0000] {subprocess.py:93} INFO - Fetching data for coin 19/100: monero
+[2026-07-21T09:14:40.138+0000] {subprocess.py:93} INFO - Fetched data for coin: monero (attempt 1/5)
+[2026-07-21T09:14:40.139+0000] {subprocess.py:93} INFO - Fetching data for coin 20/100: chainlink
+[2026-07-21T09:14:40.140+0000] {subprocess.py:93} INFO - Fetched data for coin: chainlink (attempt 1/5)
+[2026-07-21T09:14:40.141+0000] {subprocess.py:93} INFO - Fetching data for coin 21/100: whitebit-coin
+[2026-07-21T09:14:40.143+0000] {subprocess.py:93} INFO - Fetched data for coin: whitebit-coin (attempt 1/5)
+[2026-07-21T09:14:40.143+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: whitebit-coin (attempt 1/5). Waiting for 60 seconds before retrying...
+[2026-07-21T09:14:40.144+0000] {subprocess.py:93} INFO - Fetched data for coin: whitebit-coin (attempt 2/5)
+[2026-07-21T09:14:40.145+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: whitebit-coin (attempt 2/5). Waiting for 1 seconds before retrying...
+[2026-07-21T09:14:40.146+0000] {subprocess.py:93} INFO - Fetched data for coin: whitebit-coin (attempt 3/5)
+[2026-07-21T09:14:40.146+0000] {subprocess.py:93} INFO - Error fetching coin data for whitebit-coin: 404 Client Error: Not Found for url: https://api.coingecko.com/api/v3/coins/whitebit-coin
+[2026-07-21T09:14:40.147+0000] {subprocess.py:93} INFO - Failed to fetch data for coin: whitebit-coin
+[2026-07-21T09:14:40.148+0000] {subprocess.py:93} INFO - Fetching data for coin 22/100: the-open-network
+[2026-07-21T09:14:40.149+0000] {subprocess.py:93} INFO - Fetched data for coin: the-open-network (attempt 1/5)
+[2026-07-21T09:14:40.149+0000] {subprocess.py:93} INFO - Fetching data for coin 23/100: usd1-wlfi
+[2026-07-21T09:14:40.150+0000] {subprocess.py:93} INFO - Fetched data for coin: usd1-wlfi (attempt 1/5)
+[2026-07-21T09:14:40.151+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: usd1-wlfi (attempt 1/5). Waiting for 60 seconds before retrying...
+[2026-07-21T09:14:40.152+0000] {subprocess.py:93} INFO - Fetched data for coin: usd1-wlfi (attempt 2/5)
+[2026-07-21T09:14:40.153+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: usd1-wlfi (attempt 2/5). Waiting for 1 seconds before retrying...
+[2026-07-21T09:14:40.154+0000] {subprocess.py:93} INFO - Fetched data for coin: usd1-wlfi (attempt 3/5)
+[2026-07-21T09:14:40.154+0000] {subprocess.py:93} INFO - Fetching data for coin 24/100: ethena-usd
+[2026-07-21T09:14:40.155+0000] {subprocess.py:93} INFO - Fetched data for coin: ethena-usd (attempt 1/5)
+[2026-07-21T09:14:40.156+0000] {subprocess.py:93} INFO - Error fetching coin data for ethena-usd: 404 Client Error: Not Found for url: https://api.coingecko.com/api/v3/coins/ethena-usd
+[2026-07-21T09:14:40.157+0000] {subprocess.py:93} INFO - Failed to fetch data for coin: ethena-usd
+[2026-07-21T09:14:40.158+0000] {subprocess.py:93} INFO - Fetching data for coin 25/100: dai
+[2026-07-21T09:14:40.160+0000] {subprocess.py:93} INFO - Fetched data for coin: dai (attempt 1/5)
+[2026-07-21T09:14:40.161+0000] {subprocess.py:93} INFO - Fetching data for coin 26/100: bitcoin-cash
+[2026-07-21T09:14:40.162+0000] {subprocess.py:93} INFO - Fetched data for coin: bitcoin-cash (attempt 1/5)
+[2026-07-21T09:14:40.162+0000] {subprocess.py:93} INFO - Fetching data for coin 27/100: memecore
+[2026-07-21T09:14:40.163+0000] {subprocess.py:93} INFO - Fetched data for coin: memecore (attempt 1/5)
+[2026-07-21T09:14:40.164+0000] {subprocess.py:93} INFO - Fetching data for coin 28/100: hedera-hashgraph
+[2026-07-21T09:14:40.164+0000] {subprocess.py:93} INFO - Fetched data for coin: hedera-hashgraph (attempt 1/5)
+[2026-07-21T09:14:40.165+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: hedera-hashgraph (attempt 1/5). Waiting for 60 seconds before retrying...
+[2026-07-21T09:14:40.166+0000] {subprocess.py:93} INFO - Fetched data for coin: hedera-hashgraph (attempt 2/5)
+[2026-07-21T09:14:40.167+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: hedera-hashgraph (attempt 2/5). Waiting for 1 seconds before retrying...
+[2026-07-21T09:14:40.168+0000] {subprocess.py:93} INFO - Fetched data for coin: hedera-hashgraph (attempt 3/5)
+[2026-07-21T09:14:40.169+0000] {subprocess.py:93} INFO - Fetching data for coin 29/100: labra-finance
+[2026-07-21T09:14:40.170+0000] {subprocess.py:93} INFO - Fetched data for coin: labra-finance (attempt 1/5)
+[2026-07-21T09:14:40.171+0000] {subprocess.py:93} INFO - Error fetching coin data for labra-finance: 404 Client Error: Not Found for url: https://api.coingecko.com/api/v3/coins/labra-finance
+[2026-07-21T09:14:40.171+0000] {subprocess.py:93} INFO - Failed to fetch data for coin: labra-finance
+[2026-07-21T09:14:40.172+0000] {subprocess.py:93} INFO - Fetching data for coin 30/100: litecoin
+[2026-07-21T09:14:40.173+0000] {subprocess.py:93} INFO - Fetched data for coin: litecoin (attempt 1/5)
+[2026-07-21T09:14:40.174+0000] {subprocess.py:93} INFO - Fetching data for coin 31/100: sui
+[2026-07-21T09:14:40.174+0000] {subprocess.py:93} INFO - Fetched data for coin: sui (attempt 1/5)
+[2026-07-21T09:14:40.175+0000] {subprocess.py:93} INFO - Fetching data for coin 32/100: hashnote-usd
+[2026-07-21T09:14:40.176+0000] {subprocess.py:93} INFO - Fetched data for coin: hashnote-usd (attempt 1/5)
+[2026-07-21T09:14:40.177+0000] {subprocess.py:93} INFO - Error fetching coin data for hashnote-usd: 404 Client Error: Not Found for url: https://api.coingecko.com/api/v3/coins/hashnote-usd
+[2026-07-21T09:14:40.178+0000] {subprocess.py:93} INFO - Failed to fetch data for coin: hashnote-usd
+[2026-07-21T09:14:40.179+0000] {subprocess.py:93} INFO - Fetching data for coin 33/100: avalanche-2
+[2026-07-21T09:14:40.179+0000] {subprocess.py:93} INFO - Fetched data for coin: avalanche-2 (attempt 1/5)
+[2026-07-21T09:14:40.180+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: avalanche-2 (attempt 1/5). Waiting for 60 seconds before retrying...
+[2026-07-21T09:14:40.181+0000] {subprocess.py:93} INFO - Fetched data for coin: avalanche-2 (attempt 2/5)
+[2026-07-21T09:14:40.182+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: avalanche-2 (attempt 2/5). Waiting for 1 seconds before retrying...
+[2026-07-21T09:14:40.183+0000] {subprocess.py:93} INFO - Fetched data for coin: avalanche-2 (attempt 3/5)
+[2026-07-21T09:14:40.184+0000] {subprocess.py:93} INFO - Fetching data for coin 34/100: near-protocol
+[2026-07-21T09:14:40.185+0000] {subprocess.py:93} INFO - Fetched data for coin: near-protocol (attempt 1/5)
+[2026-07-21T09:14:40.186+0000] {subprocess.py:93} INFO - Error fetching coin data for near-protocol: 404 Client Error: Not Found for url: https://api.coingecko.com/api/v3/coins/near-protocol
+[2026-07-21T09:14:40.187+0000] {subprocess.py:93} INFO - Failed to fetch data for coin: near-protocol
+[2026-07-21T09:14:40.188+0000] {subprocess.py:93} INFO - Fetching data for coin 35/100: paypal-usd
+[2026-07-21T09:14:40.189+0000] {subprocess.py:93} INFO - Fetched data for coin: paypal-usd (attempt 1/5)
+[2026-07-21T09:14:40.189+0000] {subprocess.py:93} INFO - Fetching data for coin 36/100: shiba-inu
+[2026-07-21T09:14:40.190+0000] {subprocess.py:93} INFO - Fetched data for coin: shiba-inu (attempt 1/5)
+[2026-07-21T09:14:40.191+0000] {subprocess.py:93} INFO - Fetching data for coin 37/100: crypto-com-chain
+[2026-07-21T09:14:40.192+0000] {subprocess.py:93} INFO - Fetched data for coin: crypto-com-chain (attempt 1/5)
+[2026-07-21T09:14:40.193+0000] {subprocess.py:93} INFO - Fetching data for coin 38/100: tether-gold
+[2026-07-21T09:14:40.194+0000] {subprocess.py:93} INFO - Fetched data for coin: tether-gold (attempt 1/5)
+[2026-07-21T09:14:40.195+0000] {subprocess.py:93} INFO - Fetching data for coin 39/100: global-dollar-stablecoin-gds
+[2026-07-21T09:14:40.196+0000] {subprocess.py:93} INFO - Fetched data for coin: global-dollar-stablecoin-gds (attempt 1/5)
+[2026-07-21T09:14:40.197+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: global-dollar-stablecoin-gds (attempt 1/5). Waiting for 60 seconds before retrying...
+[2026-07-21T09:14:40.198+0000] {subprocess.py:93} INFO - Fetched data for coin: global-dollar-stablecoin-gds (attempt 2/5)
+[2026-07-21T09:14:40.198+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: global-dollar-stablecoin-gds (attempt 2/5). Waiting for 1 seconds before retrying...
+[2026-07-21T09:14:40.199+0000] {subprocess.py:93} INFO - Fetched data for coin: global-dollar-stablecoin-gds (attempt 3/5)
+[2026-07-21T09:14:40.200+0000] {subprocess.py:93} INFO - Error fetching coin data for global-dollar-stablecoin-gds: 404 Client Error: Not Found for url: https://api.coingecko.com/api/v3/coins/global-dollar-stablecoin-gds
+[2026-07-21T09:14:40.201+0000] {subprocess.py:93} INFO - Failed to fetch data for coin: global-dollar-stablecoin-gds
+[2026-07-21T09:14:40.201+0000] {subprocess.py:93} INFO - Fetching data for coin 40/100: blackrock-usd-institutional-digital-liquidity-fund
+[2026-07-21T09:14:40.202+0000] {subprocess.py:93} INFO - Fetched data for coin: blackrock-usd-institutional-digital-liquidity-fund (attempt 1/5)
+[2026-07-21T09:14:40.203+0000] {subprocess.py:93} INFO - Fetching data for coin 41/100: ondo-us-dollar-yield
+[2026-07-21T09:14:40.204+0000] {subprocess.py:93} INFO - Fetched data for coin: ondo-us-dollar-yield (attempt 1/5)
+[2026-07-21T09:14:40.205+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: ondo-us-dollar-yield (attempt 1/5). Waiting for 60 seconds before retrying...
+[2026-07-21T09:14:40.205+0000] {subprocess.py:93} INFO - Fetched data for coin: ondo-us-dollar-yield (attempt 2/5)
+[2026-07-21T09:14:40.207+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: ondo-us-dollar-yield (attempt 2/5). Waiting for 1 seconds before retrying...
+[2026-07-21T09:14:40.208+0000] {subprocess.py:93} INFO - Fetched data for coin: ondo-us-dollar-yield (attempt 3/5)
+[2026-07-21T09:14:40.208+0000] {subprocess.py:93} INFO - Fetching data for coin 42/100: bittensor
+[2026-07-21T09:14:40.209+0000] {subprocess.py:93} INFO - Fetched data for coin: bittensor (attempt 1/5)
+[2026-07-21T09:14:40.210+0000] {subprocess.py:93} INFO - Fetching data for coin 43/100: pax-gold
+[2026-07-21T09:14:40.211+0000] {subprocess.py:93} INFO - Fetched data for coin: pax-gold (attempt 1/5)
+[2026-07-21T09:14:40.212+0000] {subprocess.py:93} INFO - Fetching data for coin 44/100: ondo-finance
+[2026-07-21T09:14:40.213+0000] {subprocess.py:93} INFO - Fetched data for coin: ondo-finance (attempt 1/5)
+[2026-07-21T09:14:40.214+0000] {subprocess.py:93} INFO - Fetching data for coin 45/100: mantle
+[2026-07-21T09:14:40.215+0000] {subprocess.py:93} INFO - Fetched data for coin: mantle (attempt 1/5)
+[2026-07-21T09:14:40.216+0000] {subprocess.py:93} INFO - Fetching data for coin 46/100: world-liberty-financial
+[2026-07-21T09:14:40.217+0000] {subprocess.py:93} INFO - Fetched data for coin: world-liberty-financial (attempt 1/5)
+[2026-07-21T09:27:09.183+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: world-liberty-financial (attempt 1/5). Waiting for 60 seconds before retrying...
+[2026-07-21T09:27:09.185+0000] {subprocess.py:93} INFO - Fetched data for coin: world-liberty-financial (attempt 2/5)
+[2026-07-21T09:27:09.189+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: world-liberty-financial (attempt 2/5). Waiting for 1 seconds before retrying...
+[2026-07-21T09:27:09.195+0000] {subprocess.py:93} INFO - Fetched data for coin: world-liberty-financial (attempt 3/5)
+[2026-07-21T09:27:09.200+0000] {subprocess.py:93} INFO - Fetching data for coin 47/100: worldcoin
+[2026-07-21T09:27:09.201+0000] {subprocess.py:93} INFO - Fetched data for coin: worldcoin (attempt 1/5)
+[2026-07-21T09:27:09.202+0000] {subprocess.py:93} INFO - Error fetching coin data for worldcoin: 404 Client Error: Not Found for url: https://api.coingecko.com/api/v3/coins/worldcoin
+[2026-07-21T09:27:09.204+0000] {subprocess.py:93} INFO - Failed to fetch data for coin: worldcoin
+[2026-07-21T09:27:09.206+0000] {subprocess.py:93} INFO - Fetching data for coin 48/100: ripple-usd
+[2026-07-21T09:27:09.207+0000] {subprocess.py:93} INFO - Fetched data for coin: ripple-usd (attempt 1/5)
+[2026-07-21T09:27:09.209+0000] {subprocess.py:93} INFO - Fetching data for coin 49/100: polkadot
+[2026-07-21T09:27:09.210+0000] {subprocess.py:93} INFO - Fetched data for coin: polkadot (attempt 1/5)
+[2026-07-21T09:27:09.211+0000] {subprocess.py:93} INFO - Fetching data for coin 50/100: aster-2
+[2026-07-21T09:27:09.212+0000] {subprocess.py:93} INFO - Fetched data for coin: aster-2 (attempt 1/5)
+[2026-07-21T09:27:09.213+0000] {subprocess.py:93} INFO - Fetching data for coin 51/100: htx-dao
+[2026-07-21T09:27:09.215+0000] {subprocess.py:93} INFO - Fetched data for coin: htx-dao (attempt 1/5)
+[2026-07-21T09:27:09.216+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: htx-dao (attempt 1/5). Waiting for 60 seconds before retrying...
+[2026-07-21T09:27:09.217+0000] {subprocess.py:93} INFO - Fetched data for coin: htx-dao (attempt 2/5)
+[2026-07-21T09:27:09.219+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: htx-dao (attempt 2/5). Waiting for 1 seconds before retrying...
+[2026-07-21T09:27:09.220+0000] {subprocess.py:93} INFO - Fetched data for coin: htx-dao (attempt 3/5)
+[2026-07-21T09:27:09.222+0000] {subprocess.py:93} INFO - Fetching data for coin 52/100: uniswap
+[2026-07-21T09:27:09.224+0000] {subprocess.py:93} INFO - Fetched data for coin: uniswap (attempt 1/5)
+[2026-07-21T09:27:09.226+0000] {subprocess.py:93} INFO - Fetching data for coin 53/100: okb
+[2026-07-21T09:27:09.228+0000] {subprocess.py:93} INFO - Fetched data for coin: okb (attempt 1/5)
+[2026-07-21T09:27:09.229+0000] {subprocess.py:93} INFO - Fetching data for coin 54/100: falcon-financial
+[2026-07-21T09:27:09.233+0000] {subprocess.py:93} INFO - Fetched data for coin: falcon-financial (attempt 1/5)
+[2026-07-21T09:27:09.235+0000] {subprocess.py:93} INFO - Error fetching coin data for falcon-financial: 404 Client Error: Not Found for url: https://api.coingecko.com/api/v3/coins/falcon-financial
+[2026-07-21T09:27:09.237+0000] {subprocess.py:93} INFO - Failed to fetch data for coin: falcon-financial
+[2026-07-21T09:27:09.239+0000] {subprocess.py:93} INFO - Fetching data for coin 55/100: pi-network
+[2026-07-21T09:27:09.241+0000] {subprocess.py:93} INFO - Fetched data for coin: pi-network (attempt 1/5)
+[2026-07-21T09:27:09.243+0000] {subprocess.py:93} INFO - Fetching data for coin 56/100: usdd
+[2026-07-21T09:27:09.244+0000] {subprocess.py:93} INFO - Fetched data for coin: usdd (attempt 1/5)
+[2026-07-21T09:27:09.245+0000] {subprocess.py:93} INFO - Fetching data for coin 57/100: sky
+[2026-07-21T09:27:09.247+0000] {subprocess.py:93} INFO - Fetched data for coin: sky (attempt 1/5)
+[2026-07-21T09:27:09.248+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: sky (attempt 1/5). Waiting for 60 seconds before retrying...
+[2026-07-21T09:27:09.249+0000] {subprocess.py:93} INFO - Fetched data for coin: sky (attempt 2/5)
+[2026-07-21T09:27:09.250+0000] {subprocess.py:93} INFO - Fetching data for coin 58/100: bfusd
+[2026-07-21T09:27:09.252+0000] {subprocess.py:93} INFO - Fetched data for coin: bfusd (attempt 1/5)
+[2026-07-21T09:27:09.253+0000] {subprocess.py:93} INFO - Fetching data for coin 59/100: internet-computer
+[2026-07-21T09:27:09.255+0000] {subprocess.py:93} INFO - Fetched data for coin: internet-computer (attempt 1/5)
+[2026-07-21T09:27:09.256+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: internet-computer (attempt 1/5). Waiting for 60 seconds before retrying...
+[2026-07-21T09:27:09.257+0000] {subprocess.py:93} INFO - Fetched data for coin: internet-computer (attempt 2/5)
+[2026-07-21T09:27:09.259+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: internet-computer (attempt 2/5). Waiting for 1 seconds before retrying...
+[2026-07-21T09:27:09.259+0000] {subprocess.py:93} INFO - Fetched data for coin: internet-computer (attempt 3/5)
+[2026-07-21T09:27:09.260+0000] {subprocess.py:93} INFO - Fetching data for coin 60/100: bitget-token
+[2026-07-21T09:27:09.261+0000] {subprocess.py:93} INFO - Fetched data for coin: bitget-token (attempt 1/5)
+[2026-07-21T09:27:09.262+0000] {subprocess.py:93} INFO - Fetching data for coin 61/100: audiera
+[2026-07-21T09:27:09.263+0000] {subprocess.py:93} INFO - Fetched data for coin: audiera (attempt 1/5)
+[2026-07-21T09:27:09.264+0000] {subprocess.py:93} INFO - Fetching data for coin 62/100: pepe
+[2026-07-21T09:27:09.265+0000] {subprocess.py:93} INFO - Fetched data for coin: pepe (attempt 1/5)
+[2026-07-21T09:27:09.266+0000] {subprocess.py:93} INFO - Fetching data for coin 63/100: morpho
+[2026-07-21T09:27:09.267+0000] {subprocess.py:93} INFO - Fetched data for coin: morpho (attempt 1/5)
+[2026-07-21T09:27:09.267+0000] {subprocess.py:93} INFO - Fetching data for coin 64/100: ethereum-classic
+[2026-07-21T09:27:09.268+0000] {subprocess.py:93} INFO - Fetched data for coin: ethereum-classic (attempt 1/5)
+[2026-07-21T09:27:09.269+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: ethereum-classic (attempt 1/5). Waiting for 60 seconds before retrying...
+[2026-07-21T09:27:09.270+0000] {subprocess.py:93} INFO - Fetched data for coin: ethereum-classic (attempt 2/5)
+[2026-07-21T09:27:09.271+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: ethereum-classic (attempt 2/5). Waiting for 1 seconds before retrying...
+[2026-07-21T09:27:09.272+0000] {subprocess.py:93} INFO - Fetched data for coin: ethereum-classic (attempt 3/5)
+[2026-07-21T09:27:09.273+0000] {subprocess.py:93} INFO - Fetching data for coin 65/100: dexe
+[2026-07-21T09:27:09.274+0000] {subprocess.py:93} INFO - Fetched data for coin: dexe (attempt 1/5)
+[2026-07-21T09:27:09.274+0000] {subprocess.py:93} INFO - Fetching data for coin 66/100: usdtb
+[2026-07-21T09:27:09.275+0000] {subprocess.py:93} INFO - Fetched data for coin: usdtb (attempt 1/5)
+[2026-07-21T09:27:09.276+0000] {subprocess.py:93} INFO - Fetching data for coin 67/100: eutbl
+[2026-07-21T09:27:09.277+0000] {subprocess.py:93} INFO - Fetched data for coin: eutbl (attempt 1/5)
+[2026-07-21T09:27:09.278+0000] {subprocess.py:93} INFO - Fetching data for coin 68/100: united-states-dollar
+[2026-07-21T09:27:09.279+0000] {subprocess.py:93} INFO - Fetched data for coin: united-states-dollar (attempt 1/5)
+[2026-07-21T09:27:09.279+0000] {subprocess.py:93} INFO - Error fetching coin data for united-states-dollar: 404 Client Error: Not Found for url: https://api.coingecko.com/api/v3/coins/united-states-dollar
+[2026-07-21T09:27:09.280+0000] {subprocess.py:93} INFO - Failed to fetch data for coin: united-states-dollar
+[2026-07-21T09:27:09.281+0000] {subprocess.py:93} INFO - Fetching data for coin 69/100: quant-network
+[2026-07-21T09:27:09.282+0000] {subprocess.py:93} INFO - Fetched data for coin: quant-network (attempt 1/5)
+[2026-07-21T09:27:09.283+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: quant-network (attempt 1/5). Waiting for 60 seconds before retrying...
+[2026-07-21T09:27:09.284+0000] {subprocess.py:93} INFO - Fetched data for coin: quant-network (attempt 2/5)
+[2026-07-21T09:27:09.285+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: quant-network (attempt 2/5). Waiting for 1 seconds before retrying...
+[2026-07-21T09:27:09.286+0000] {subprocess.py:93} INFO - Fetched data for coin: quant-network (attempt 3/5)
+[2026-07-21T09:27:09.287+0000] {subprocess.py:93} INFO - Fetching data for coin 70/100: blockchain-capital
+[2026-07-21T09:27:09.288+0000] {subprocess.py:93} INFO - Fetched data for coin: blockchain-capital (attempt 1/5)
+[2026-07-21T09:27:09.289+0000] {subprocess.py:93} INFO - Fetching data for coin 71/100: aave
+[2026-07-21T09:27:09.290+0000] {subprocess.py:93} INFO - Fetched data for coin: aave (attempt 1/5)
+[2026-07-21T09:27:09.291+0000] {subprocess.py:93} INFO - Fetching data for coin 72/100: superstate
+[2026-07-21T09:27:09.291+0000] {subprocess.py:93} INFO - Fetched data for coin: superstate (attempt 1/5)
+[2026-07-21T09:27:09.292+0000] {subprocess.py:93} INFO - Error fetching coin data for superstate: 404 Client Error: Not Found for url: https://api.coingecko.com/api/v3/coins/superstate
+[2026-07-21T09:27:09.293+0000] {subprocess.py:93} INFO - Failed to fetch data for coin: superstate
+[2026-07-21T09:27:09.294+0000] {subprocess.py:93} INFO - Fetching data for coin 73/100: cosmos
+[2026-07-21T09:27:09.294+0000] {subprocess.py:93} INFO - Fetched data for coin: cosmos (attempt 1/5)
+[2026-07-21T09:27:09.295+0000] {subprocess.py:93} INFO - Fetching data for coin 74/100: siren-2
+[2026-07-21T09:27:09.296+0000] {subprocess.py:93} INFO - Fetched data for coin: siren-2 (attempt 1/5)
+[2026-07-21T09:27:09.297+0000] {subprocess.py:93} INFO - Fetching data for coin 75/100: kaspa
+[2026-07-21T09:27:09.298+0000] {subprocess.py:93} INFO - Fetched data for coin: kaspa (attempt 1/5)
+[2026-07-21T09:27:09.299+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: kaspa (attempt 1/5). Waiting for 60 seconds before retrying...
+[2026-07-21T09:27:09.300+0000] {subprocess.py:93} INFO - Fetched data for coin: kaspa (attempt 2/5)
+[2026-07-21T09:27:09.301+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: kaspa (attempt 2/5). Waiting for 1 seconds before retrying...
+[2026-07-21T09:27:09.302+0000] {subprocess.py:93} INFO - Fetched data for coin: kaspa (attempt 3/5)
+[2026-07-21T09:27:09.303+0000] {subprocess.py:93} INFO - Fetching data for coin 76/100: janus-henderson-anemoy-treasury-fund
+[2026-07-21T09:27:09.304+0000] {subprocess.py:93} INFO - Fetched data for coin: janus-henderson-anemoy-treasury-fund (attempt 1/5)
+[2026-07-21T09:27:09.305+0000] {subprocess.py:93} INFO - Fetching data for coin 77/100: kucoin-shares
+[2026-07-21T09:27:09.306+0000] {subprocess.py:93} INFO - Fetched data for coin: kucoin-shares (attempt 1/5)
+[2026-07-21T09:27:09.307+0000] {subprocess.py:93} INFO - Fetching data for coin 78/100: render-token
+[2026-07-21T09:27:09.307+0000] {subprocess.py:93} INFO - Fetched data for coin: render-token (attempt 1/5)
+[2026-07-21T09:27:09.308+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: render-token (attempt 1/5). Waiting for 60 seconds before retrying...
+[2026-07-21T09:27:09.309+0000] {subprocess.py:93} INFO - Fetched data for coin: render-token (attempt 2/5)
+[2026-07-21T09:27:09.310+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: render-token (attempt 2/5). Waiting for 1 seconds before retrying...
+[2026-07-21T09:27:09.310+0000] {subprocess.py:93} INFO - Fetched data for coin: render-token (attempt 3/5)
+[2026-07-21T09:27:09.311+0000] {subprocess.py:93} INFO - Fetching data for coin 79/100: algorand
+[2026-07-21T09:27:09.312+0000] {subprocess.py:93} INFO - Fetched data for coin: algorand (attempt 1/5)
+[2026-07-21T09:27:09.313+0000] {subprocess.py:93} INFO - Fetching data for coin 80/100: polygon-ecosystem
+[2026-07-21T09:27:09.314+0000] {subprocess.py:93} INFO - Fetched data for coin: polygon-ecosystem (attempt 1/5)
+[2026-07-21T09:27:09.314+0000] {subprocess.py:93} INFO - Error fetching coin data for polygon-ecosystem: 404 Client Error: Not Found for url: https://api.coingecko.com/api/v3/coins/polygon-ecosystem
+[2026-07-21T09:27:09.315+0000] {subprocess.py:93} INFO - Failed to fetch data for coin: polygon-ecosystem
+[2026-07-21T09:27:09.316+0000] {subprocess.py:93} INFO - Fetching data for coin 81/100: nexo
+[2026-07-21T09:27:09.317+0000] {subprocess.py:93} INFO - Fetched data for coin: nexo (attempt 1/5)
+[2026-07-21T09:27:09.318+0000] {subprocess.py:93} INFO - Fetching data for coin 82/100: ethena
+[2026-07-21T09:27:09.319+0000] {subprocess.py:93} INFO - Fetched data for coin: ethena (attempt 1/5)
+[2026-07-21T09:27:09.320+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: ethena (attempt 1/5). Waiting for 60 seconds before retrying...
+[2026-07-21T09:27:09.321+0000] {subprocess.py:93} INFO - Fetched data for coin: ethena (attempt 2/5)
+[2026-07-21T09:27:09.322+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: ethena (attempt 2/5). Waiting for 1 seconds before retrying...
+[2026-07-21T09:27:09.323+0000] {subprocess.py:93} INFO - Fetched data for coin: ethena (attempt 3/5)
+[2026-07-21T09:27:09.324+0000] {subprocess.py:93} INFO - Fetching data for coin 83/100: stable-2
+[2026-07-21T09:27:09.324+0000] {subprocess.py:93} INFO - Fetched data for coin: stable-2 (attempt 1/5)
+[2026-07-21T09:27:09.325+0000] {subprocess.py:93} INFO - Fetching data for coin 84/100: venice-token
+[2026-07-21T09:27:09.326+0000] {subprocess.py:93} INFO - Fetched data for coin: venice-token (attempt 1/5)
+[2026-07-21T09:27:09.326+0000] {subprocess.py:93} INFO - Fetching data for coin 85/100: just
+[2026-07-21T09:27:09.327+0000] {subprocess.py:93} INFO - Fetched data for coin: just (attempt 1/5)
+[2026-07-21T09:27:09.328+0000] {subprocess.py:93} INFO - Fetching data for coin 86/100: bianrensheng
+[2026-07-21T09:27:09.329+0000] {subprocess.py:93} INFO - Fetched data for coin: bianrensheng (attempt 1/5)
+[2026-07-21T09:27:09.330+0000] {subprocess.py:93} INFO - Fetching data for coin 87/100: gatechain-token
+[2026-07-21T09:27:09.331+0000] {subprocess.py:93} INFO - Fetched data for coin: gatechain-token (attempt 1/5)
+[2026-07-21T09:27:09.332+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: gatechain-token (attempt 1/5). Waiting for 60 seconds before retrying...
+[2026-07-21T09:27:09.332+0000] {subprocess.py:93} INFO - Fetched data for coin: gatechain-token (attempt 2/5)
+[2026-07-21T09:27:09.333+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: gatechain-token (attempt 2/5). Waiting for 1 seconds before retrying...
+[2026-07-21T09:27:09.334+0000] {subprocess.py:93} INFO - Fetched data for coin: gatechain-token (attempt 3/5)
+[2026-07-21T09:27:09.335+0000] {subprocess.py:93} INFO - Fetching data for coin 88/100: xdce-crowd
+[2026-07-21T09:27:09.336+0000] {subprocess.py:93} INFO - Fetched data for coin: xdce-crowd (attempt 1/5)
+[2026-07-21T09:27:09.337+0000] {subprocess.py:93} INFO - Error fetching coin data for xdce-crowd: 404 Client Error: Not Found for url: https://api.coingecko.com/api/v3/coins/xdce-crowd
+[2026-07-21T09:27:09.338+0000] {subprocess.py:93} INFO - Failed to fetch data for coin: xdce-crowd
+[2026-07-21T09:27:09.338+0000] {subprocess.py:93} INFO - Fetching data for coin 89/100: beldex
+[2026-07-21T09:27:09.339+0000] {subprocess.py:93} INFO - Fetched data for coin: beldex (attempt 1/5)
+[2026-07-21T09:27:09.340+0000] {subprocess.py:93} INFO - Fetching data for coin 90/100: flare-network
+[2026-07-21T09:27:09.341+0000] {subprocess.py:93} INFO - Fetched data for coin: flare-network (attempt 1/5)
+[2026-07-21T09:27:09.341+0000] {subprocess.py:93} INFO - Error fetching coin data for flare-network: 404 Client Error: Not Found for url: https://api.coingecko.com/api/v3/coins/flare-network
+[2026-07-21T09:27:09.342+0000] {subprocess.py:93} INFO - Failed to fetch data for coin: flare-network
+[2026-07-21T09:27:09.343+0000] {subprocess.py:93} INFO - Fetching data for coin 91/100: filecoin
+[2026-07-21T09:27:09.344+0000] {subprocess.py:93} INFO - Fetched data for coin: filecoin (attempt 1/5)
+[2026-07-21T09:27:09.344+0000] {subprocess.py:93} INFO - Fetching data for coin 92/100: gho
+[2026-07-21T09:27:09.345+0000] {subprocess.py:93} INFO - Fetched data for coin: gho (attempt 1/5)
+[2026-07-21T09:30:42.957+0000] {subprocess.py:93} INFO - Fetching data for coin 93/100: injective-protocol
+[2026-07-21T09:30:42.963+0000] {subprocess.py:93} INFO - Fetched data for coin: injective-protocol (attempt 1/5)
+[2026-07-21T09:30:42.967+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: injective-protocol (attempt 1/5). Waiting for 60 seconds before retrying...
+[2026-07-21T09:30:42.968+0000] {subprocess.py:93} INFO - Fetched data for coin: injective-protocol (attempt 2/5)
+[2026-07-21T09:30:42.975+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: injective-protocol (attempt 2/5). Waiting for 1 seconds before retrying...
+[2026-07-21T09:30:42.976+0000] {subprocess.py:93} INFO - Fetched data for coin: injective-protocol (attempt 3/5)
+[2026-07-21T09:30:42.977+0000] {subprocess.py:93} INFO - Fetching data for coin 94/100: usual-usd
+[2026-07-21T09:30:42.978+0000] {subprocess.py:93} INFO - Fetched data for coin: usual-usd (attempt 1/5)
+[2026-07-21T09:30:42.979+0000] {subprocess.py:93} INFO - Fetching data for coin 95/100: aptos
+[2026-07-21T09:30:42.980+0000] {subprocess.py:93} INFO - Fetched data for coin: aptos (attempt 1/5)
+[2026-07-21T09:30:42.980+0000] {subprocess.py:93} INFO - Fetching data for coin 96/100: pump-fun
+[2026-07-21T09:30:42.984+0000] {subprocess.py:93} INFO - Fetched data for coin: pump-fun (attempt 1/5)
+[2026-07-21T09:30:42.988+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: pump-fun (attempt 1/5). Waiting for 60 seconds before retrying...
+[2026-07-21T09:30:42.995+0000] {subprocess.py:93} INFO - Fetched data for coin: pump-fun (attempt 2/5)
+[2026-07-21T09:30:43.013+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: pump-fun (attempt 2/5). Waiting for 1 seconds before retrying...
+[2026-07-21T09:30:43.025+0000] {subprocess.py:93} INFO - Fetched data for coin: pump-fun (attempt 3/5)
+[2026-07-21T09:30:43.026+0000] {subprocess.py:93} INFO - Fetching data for coin 97/100: ylds
+[2026-07-21T09:30:43.030+0000] {subprocess.py:93} INFO - Fetched data for coin: ylds (attempt 1/5)
+[2026-07-21T09:30:43.035+0000] {subprocess.py:93} INFO - Fetching data for coin 98/100: hash-2
+[2026-07-21T09:30:43.038+0000] {subprocess.py:93} INFO - Fetched data for coin: hash-2 (attempt 1/5)
+[2026-07-21T09:30:43.041+0000] {subprocess.py:93} INFO - Fetching data for coin 99/100: midnight-3
+[2026-07-21T09:30:43.042+0000] {subprocess.py:93} INFO - Fetched data for coin: midnight-3 (attempt 1/5)
+[2026-07-21T09:30:43.044+0000] {subprocess.py:93} INFO - Fetching data for coin 100/100: jupiter-exchange
+[2026-07-21T09:30:43.049+0000] {subprocess.py:93} INFO - Fetched data for coin: jupiter-exchange (attempt 1/5)
+[2026-07-21T09:30:43.052+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: jupiter-exchange (attempt 1/5). Waiting for 60 seconds before retrying...
+[2026-07-21T09:30:43.054+0000] {subprocess.py:93} INFO - Fetched data for coin: jupiter-exchange (attempt 2/5)
+[2026-07-21T09:30:43.058+0000] {subprocess.py:93} INFO - Rate limit exceeded on coin: jupiter-exchange (attempt 2/5). Waiting for 1 seconds before retrying...
+[2026-07-21T09:30:43.059+0000] {subprocess.py:93} INFO - Fetched data for coin: jupiter-exchange (attempt 3/5)
+[2026-07-21T09:30:43.062+0000] {subprocess.py:93} INFO - Error fetching coin data for jupiter-exchange: 404 Client Error: Not Found for url: https://api.coingecko.com/api/v3/coins/jupiter-exchange
+[2026-07-21T09:30:43.065+0000] {subprocess.py:93} INFO - Failed to fetch data for coin: jupiter-exchange
+[2026-07-21T09:30:43.067+0000] {subprocess.py:93} INFO - Fetched data for 86 coins. Now loading into the database.
+[2026-07-21T09:30:43.070+0000] {subprocess.py:93} INFO - Inserted/Updated 86 coins into the database.
+[2026-07-21T09:30:43.087+0000] {subprocess.py:93} INFO - Data ingestion completed successfully.
+[2026-07-21T09:30:43.481+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-07-21T09:30:43.486+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-07-21T09:30:43.946+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=coinflow_daily_pipeline, task_id=extract_coin_categories_data, run_id=manual__2026-07-21T07:09:19.074283+00:00, execution_date=20260721T070919, start_date=20260721T090312, end_date=20260721T093043
+[2026-07-21T09:30:44.195+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-07-21T09:30:44.505+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-07-21T09:30:44.583+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

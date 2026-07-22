@@ -1,5 +1,6 @@
 x-airflow-common: &airflow-common
-  image: apache/airflow:2.9.3
+  build: .
+  image: apache-airflow:2.9.3
   environment: &airflow-common-env
     AIRFLOW__CORE__EXECUTOR: LocalExecutor
     AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@airflow-postgres:5432/airflow
@@ -8,7 +9,6 @@ x-airflow-common: &airflow-common
     AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
     AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth,airflow.api.auth.backend.session'
     AIRFLOW__CORE__TEST_CONNECTION: 'Enabled'
-    _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:-apache-airflow-providers-postgres dbt-postgres==1.7.13}
     DB_HOST: 'database'
     DB_PORT: '5432'
     DB_NAME: ${DB_NAME}

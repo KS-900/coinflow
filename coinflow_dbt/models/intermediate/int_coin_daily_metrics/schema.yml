@@ -18,7 +18,7 @@ models:
         data_tests:
           - not_null
           - relationships:
-              to: "{{ref('stg_coin_price_history')}}"
+              to: ref('stg_coin_price_history')
               field: coin_id
       - name: date_stamp
         description: timestamp of the price record

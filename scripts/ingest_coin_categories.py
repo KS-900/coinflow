@@ -31,7 +31,7 @@ DEFAULT_COINS = ("bitcoin", "ethereum", "tether", "binancecoin", "usd-coin", "ri
                  "polygon-ecosystem", "nexo", "ethena", "stable-2", "venice-token", "just", "bianrensheng", 
                  "gatechain-token", "xdce-crowd", "beldex", "flare-network", "filecoin", "gho", "injective-protocol", 
                  "usual-usd", "aptos", "pump-fun", "ylds", "hash-2", "midnight-3", "jupiter-exchange")   
-DEFAULT_DELAY_SEC = float(5)  # delay in seconds between API calls to avoid rate limits
+DEFAULT_DELAY_SEC = 2.5 # delay in seconds between API calls to avoid rate limits
 DEFAULT_URL = "https://api.coingecko.com/api/v3"
 
  # ------------------------------------------------------------------------------
@@ -48,10 +48,10 @@ def _parse_coin_ids() -> list[str]:
 # Parse delay seconds from environment variable or use default
 # ------------------------------------------------------------------------------
 def _request_delay_sec() -> float:
-    raw = float(os.getenv("API_DELAY_SECONDS", "").strip())
+    raw = os.getenv("API_DELAY_SECONDS", "").strip()
     if not raw:
         return DEFAULT_DELAY_SEC
-    return raw
+    return max(0.0, float(raw))
 
 # ------------------------------------------------------------------------------
 # Parse base URL from environment variable or use default

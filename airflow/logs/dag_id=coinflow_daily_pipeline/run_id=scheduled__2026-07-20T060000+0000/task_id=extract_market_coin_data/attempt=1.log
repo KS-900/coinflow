@@ -1,0 +1,25 @@
+[2026-07-21T07:11:11.868+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-07-21T07:11:15.389+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: coinflow_daily_pipeline.extract_market_coin_data scheduled__2026-07-20T06:00:00+00:00 [queued]>
+[2026-07-21T07:11:15.442+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: coinflow_daily_pipeline.extract_market_coin_data scheduled__2026-07-20T06:00:00+00:00 [queued]>
+[2026-07-21T07:11:15.444+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 4
+[2026-07-21T07:11:15.870+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): extract_market_coin_data> on 2026-07-20 06:00:00+00:00
+[2026-07-21T07:11:15.897+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'coinflow_daily_pipeline', 'extract_market_coin_data', 'scheduled__2026-07-20T06:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/coinflow_daily_pipeline.py', '--cfg-path', '/tmp/tmp63gwvysg']
+[2026-07-21T07:11:15.904+0000] {standard_task_runner.py:91} INFO - Job 4: Subtask extract_market_coin_data
+[2026-07-21T07:11:15.979+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=1489) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-21T07:11:15.984+0000] {standard_task_runner.py:64} INFO - Started process 1518 to run task
+[2026-07-21T07:11:16.753+0000] {task_command.py:426} INFO - Running <TaskInstance: coinflow_daily_pipeline.extract_market_coin_data scheduled__2026-07-20T06:00:00+00:00 [running]> on host ee8816a37129
+[2026-07-21T07:11:31.227+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='coinflow_daily_pipeline' AIRFLOW_CTX_TASK_ID='extract_market_coin_data' AIRFLOW_CTX_EXECUTION_DATE='2026-07-20T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-07-20T06:00:00+00:00'
+[2026-07-21T07:11:31.998+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-07-21T07:11:35.589+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-07-21T07:11:35.685+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/scripts/ingest_coin_markets.py']
+[2026-07-21T07:11:35.965+0000] {subprocess.py:86} INFO - Output:
+[2026-07-21T07:12:10.199+0000] {subprocess.py:93} INFO - Starting coin markets ingestion...
+[2026-07-21T07:12:10.205+0000] {subprocess.py:93} INFO - Upserted 100 row(s) into raw.coin_markets.
+[2026-07-21T07:12:10.209+0000] {subprocess.py:93} INFO - Total rows in raw.coin_markets: 100
+[2026-07-21T07:12:10.210+0000] {subprocess.py:93} INFO - Coin markets ingestion completed.
+[2026-07-21T07:12:10.290+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-07-21T07:12:10.346+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-07-21T07:12:10.807+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=coinflow_daily_pipeline, task_id=extract_market_coin_data, run_id=scheduled__2026-07-20T06:00:00+00:00, execution_date=20260720T060000, start_date=20260721T071115, end_date=20260721T071210
+[2026-07-21T07:12:11.243+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-07-21T07:12:11.704+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-07-21T07:12:11.844+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

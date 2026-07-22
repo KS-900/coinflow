@@ -1,0 +1,198 @@
+[2026-07-21T07:12:33.055+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-07-21T07:12:33.646+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: coinflow_daily_pipeline.extract_coin_history_data scheduled__2026-07-20T06:00:00+00:00 [queued]>
+[2026-07-21T07:12:33.696+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: coinflow_daily_pipeline.extract_coin_history_data scheduled__2026-07-20T06:00:00+00:00 [queued]>
+[2026-07-21T07:12:33.780+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 4
+[2026-07-21T07:12:34.050+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): extract_coin_history_data> on 2026-07-20 06:00:00+00:00
+[2026-07-21T07:12:34.071+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'coinflow_daily_pipeline', 'extract_coin_history_data', 'scheduled__2026-07-20T06:00:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/coinflow_daily_pipeline.py', '--cfg-path', '/tmp/tmp6jmsquyd']
+[2026-07-21T07:12:34.081+0000] {standard_task_runner.py:91} INFO - Job 6: Subtask extract_coin_history_data
+[2026-07-21T07:12:34.081+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=1532) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-21T07:12:34.233+0000] {standard_task_runner.py:64} INFO - Started process 1541 to run task
+[2026-07-21T07:12:34.485+0000] {task_command.py:426} INFO - Running <TaskInstance: coinflow_daily_pipeline.extract_coin_history_data scheduled__2026-07-20T06:00:00+00:00 [running]> on host ee8816a37129
+[2026-07-21T07:12:36.381+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='coinflow_daily_pipeline' AIRFLOW_CTX_TASK_ID='extract_coin_history_data' AIRFLOW_CTX_EXECUTION_DATE='2026-07-20T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-07-20T06:00:00+00:00'
+[2026-07-21T07:12:36.383+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-07-21T07:12:38.239+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-07-21T07:12:38.624+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/scripts/ingest_coin_history.py']
+[2026-07-21T07:12:38.944+0000] {subprocess.py:86} INFO - Output:
+[2026-07-21T07:48:31.354+0000] {subprocess.py:93} INFO - Starting coin history ingestion...
+[2026-07-21T07:48:31.356+0000] {subprocess.py:93} INFO - Coins: ['bitcoin', 'ethereum', 'tether', 'binancecoin', 'usd-coin', 'ripple', 'solana', 'tron', 'figure-heloc', 'hyperliquid', 'dogecoin', 'usds', 'leo-token', 'rain', 'zcash', 'stellar', 'canton-network', 'cardano', 'monero', 'chainlink', 'whitebit-coin', 'the-open-network', 'usd1-wlfi', 'ethena-usd', 'dai', 'bitcoin-cash', 'memecore', 'hedera-hashgraph', 'labra-finance', 'litecoin', 'sui', 'hashnote-usd', 'avalanche-2', 'near-protocol', 'paypal-usd', 'shiba-inu', 'crypto-com-chain', 'tether-gold', 'global-dollar-stablecoin-gds', 'blackrock-usd-institutional-digital-liquidity-fund', 'ondo-us-dollar-yield', 'bittensor', 'pax-gold', 'ondo-finance', 'mantle', 'world-liberty-financial', 'worldcoin', 'ripple-usd', 'polkadot', 'aster-2', 'htx-dao', 'uniswap', 'okb', 'falcon-financial', 'pi-network', 'usdd', 'sky', 'bfusd', 'internet-computer', 'bitget-token', 'audiera', 'pepe', 'morpho', 'ethereum-classic', 'dexe', 'usdtb', 'eutbl', 'united-states-dollar', 'quant-network', 'blockchain-capital', 'aave', 'superstate', 'cosmos', 'siren-2', 'kaspa', 'janus-henderson-anemoy-treasury-fund', 'kucoin-shares', 'render-token', 'algorand', 'polygon-ecosystem', 'nexo', 'ethena', 'stable-2', 'venice-token', 'just', 'bianrensheng', 'gatechain-token', 'xdce-crowd', 'beldex', 'flare-network', 'filecoin', 'gho', 'injective-protocol', 'usual-usd', 'aptos', 'pump-fun', 'ylds', 'hash-2', 'midnight-3', 'jupiter-exchange'], chart_days=90
+[2026-07-21T07:48:31.357+0000] {subprocess.py:93} INFO - Fetched chart for bitcoin
+[2026-07-21T07:48:31.358+0000] {subprocess.py:93} INFO - Fetched chart for ethereum
+[2026-07-21T07:48:31.358+0000] {subprocess.py:93} INFO - Rate limited on tether (attempt 1/5); sleeping 60s
+[2026-07-21T07:48:31.359+0000] {subprocess.py:93} INFO - Rate limited on tether (attempt 2/5); sleeping 1s
+[2026-07-21T07:48:31.360+0000] {subprocess.py:93} INFO - Fetched chart for tether
+[2026-07-21T07:48:31.361+0000] {subprocess.py:93} INFO - Fetched chart for binancecoin
+[2026-07-21T07:48:31.362+0000] {subprocess.py:93} INFO - Fetched chart for usd-coin
+[2026-07-21T07:48:31.363+0000] {subprocess.py:93} INFO - Rate limited on ripple (attempt 1/5); sleeping 57s
+[2026-07-21T07:48:31.364+0000] {subprocess.py:93} INFO - Rate limited on ripple (attempt 2/5); sleeping 1s
+[2026-07-21T07:48:31.365+0000] {subprocess.py:93} INFO - Fetched chart for ripple
+[2026-07-21T07:48:31.366+0000] {subprocess.py:93} INFO - Fetched chart for solana
+[2026-07-21T07:48:31.366+0000] {subprocess.py:93} INFO - Fetched chart for tron
+[2026-07-21T07:48:31.368+0000] {subprocess.py:93} INFO - Rate limited on figure-heloc (attempt 1/5); sleeping 59s
+[2026-07-21T07:48:31.369+0000] {subprocess.py:93} INFO - Rate limited on figure-heloc (attempt 2/5); sleeping 1s
+[2026-07-21T07:48:31.370+0000] {subprocess.py:93} INFO - Fetched chart for figure-heloc
+[2026-07-21T07:48:31.370+0000] {subprocess.py:93} INFO - Rate limited on hyperliquid (attempt 1/5); sleeping 60s
+[2026-07-21T07:48:31.371+0000] {subprocess.py:93} INFO - Rate limited on hyperliquid (attempt 2/5); sleeping 1s
+[2026-07-21T07:48:31.372+0000] {subprocess.py:93} INFO - Fetched chart for hyperliquid
+[2026-07-21T07:48:31.372+0000] {subprocess.py:93} INFO - Fetched chart for dogecoin
+[2026-07-21T07:48:31.373+0000] {subprocess.py:93} INFO - Rate limited on usds (attempt 1/5); sleeping 60s
+[2026-07-21T07:48:31.374+0000] {subprocess.py:93} INFO - Rate limited on usds (attempt 2/5); sleeping 1s
+[2026-07-21T07:48:31.375+0000] {subprocess.py:93} INFO - Fetched chart for usds
+[2026-07-21T07:48:31.375+0000] {subprocess.py:93} INFO - Rate limited on leo-token (attempt 1/5); sleeping 60s
+[2026-07-21T07:48:31.376+0000] {subprocess.py:93} INFO - Rate limited on leo-token (attempt 2/5); sleeping 1s
+[2026-07-21T07:48:31.377+0000] {subprocess.py:93} INFO - Fetched chart for leo-token
+[2026-07-21T07:48:31.378+0000] {subprocess.py:93} INFO - Fetched chart for rain
+[2026-07-21T07:48:31.379+0000] {subprocess.py:93} INFO - Rate limited on zcash (attempt 1/5); sleeping 60s
+[2026-07-21T07:48:31.380+0000] {subprocess.py:93} INFO - Fetched chart for zcash
+[2026-07-21T07:48:31.381+0000] {subprocess.py:93} INFO - Fetched chart for stellar
+[2026-07-21T07:48:31.381+0000] {subprocess.py:93} INFO - Rate limited on canton-network (attempt 1/5); sleeping 60s
+[2026-07-21T07:48:31.384+0000] {subprocess.py:93} INFO - Fetched chart for canton-network
+[2026-07-21T07:48:31.385+0000] {subprocess.py:93} INFO - Fetched chart for cardano
+[2026-07-21T07:48:31.385+0000] {subprocess.py:93} INFO - Rate limited on monero (attempt 1/5); sleeping 60s
+[2026-07-21T07:48:31.386+0000] {subprocess.py:93} INFO - Rate limited on monero (attempt 2/5); sleeping 1s
+[2026-07-21T07:48:31.387+0000] {subprocess.py:93} INFO - Fetched chart for monero
+[2026-07-21T07:48:31.387+0000] {subprocess.py:93} INFO - Fetched chart for chainlink
+[2026-07-21T07:48:31.388+0000] {subprocess.py:93} INFO - Error fetching market_chart for whitebit-coin: 404 Client Error: Not Found for url: https://api.coingecko.com/api/v3/coins/whitebit-coin/market_chart?vs_currency=usd&days=90
+[2026-07-21T07:48:31.389+0000] {subprocess.py:93} INFO - Rate limited on the-open-network (attempt 1/5); sleeping 60s
+[2026-07-21T07:48:31.389+0000] {subprocess.py:93} INFO - Rate limited on the-open-network (attempt 2/5); sleeping 1s
+[2026-07-21T07:48:31.390+0000] {subprocess.py:93} INFO - Fetched chart for the-open-network
+[2026-07-21T07:48:31.391+0000] {subprocess.py:93} INFO - Fetched chart for usd1-wlfi
+[2026-07-21T07:48:31.391+0000] {subprocess.py:93} INFO - Error fetching market_chart for ethena-usd: 404 Client Error: Not Found for url: https://api.coingecko.com/api/v3/coins/ethena-usd/market_chart?vs_currency=usd&days=90
+[2026-07-21T07:48:31.392+0000] {subprocess.py:93} INFO - Rate limited on dai (attempt 1/5); sleeping 58s
+[2026-07-21T07:48:31.393+0000] {subprocess.py:93} INFO - Rate limited on dai (attempt 2/5); sleeping 1s
+[2026-07-21T07:48:31.393+0000] {subprocess.py:93} INFO - Fetched chart for dai
+[2026-07-21T07:48:31.394+0000] {subprocess.py:93} INFO - Fetched chart for bitcoin-cash
+[2026-07-21T07:48:31.396+0000] {subprocess.py:93} INFO - Rate limited on memecore (attempt 1/5); sleeping 60s
+[2026-07-21T07:48:31.396+0000] {subprocess.py:93} INFO - Rate limited on memecore (attempt 2/5); sleeping 1s
+[2026-07-21T07:48:31.397+0000] {subprocess.py:93} INFO - Fetched chart for memecore
+[2026-07-21T07:48:31.398+0000] {subprocess.py:93} INFO - Rate limited on hedera-hashgraph (attempt 1/5); sleeping 60s
+[2026-07-21T07:48:31.399+0000] {subprocess.py:93} INFO - Rate limited on hedera-hashgraph (attempt 2/5); sleeping 1s
+[2026-07-21T07:48:31.399+0000] {subprocess.py:93} INFO - Fetched chart for hedera-hashgraph
+[2026-07-21T07:48:31.400+0000] {subprocess.py:93} INFO - Rate limited on labra-finance (attempt 1/5); sleeping 60s
+[2026-07-21T07:48:31.401+0000] {subprocess.py:93} INFO - Rate limited on labra-finance (attempt 2/5); sleeping 1s
+[2026-07-21T07:48:31.401+0000] {subprocess.py:93} INFO - Error fetching market_chart for labra-finance: 404 Client Error: Not Found for url: https://api.coingecko.com/api/v3/coins/labra-finance/market_chart?vs_currency=usd&days=90
+[2026-07-21T07:48:31.402+0000] {subprocess.py:93} INFO - Fetched chart for litecoin
+[2026-07-21T07:48:31.403+0000] {subprocess.py:93} INFO - Rate limited on sui (attempt 1/5); sleeping 60s
+[2026-07-21T07:48:31.404+0000] {subprocess.py:93} INFO - Rate limited on sui (attempt 2/5); sleeping 1s
+[2026-07-21T07:48:31.404+0000] {subprocess.py:93} INFO - Fetched chart for sui
+[2026-07-21T07:48:31.405+0000] {subprocess.py:93} INFO - Rate limited on hashnote-usd (attempt 1/5); sleeping 60s
+[2026-07-21T07:48:31.406+0000] {subprocess.py:93} INFO - Rate limited on hashnote-usd (attempt 2/5); sleeping 1s
+[2026-07-21T07:48:31.407+0000] {subprocess.py:93} INFO - Error fetching market_chart for hashnote-usd: 404 Client Error: Not Found for url: https://api.coingecko.com/api/v3/coins/hashnote-usd/market_chart?vs_currency=usd&days=90
+[2026-07-21T07:48:31.407+0000] {subprocess.py:93} INFO - Fetched chart for avalanche-2
+[2026-07-21T07:48:31.408+0000] {subprocess.py:93} INFO - Rate limited on near-protocol (attempt 1/5); sleeping 60s
+[2026-07-21T07:48:31.409+0000] {subprocess.py:93} INFO - Rate limited on near-protocol (attempt 2/5); sleeping 1s
+[2026-07-21T07:48:31.410+0000] {subprocess.py:93} INFO - Error fetching market_chart for near-protocol: 404 Client Error: Not Found for url: https://api.coingecko.com/api/v3/coins/near-protocol/market_chart?vs_currency=usd&days=90
+[2026-07-21T07:48:31.411+0000] {subprocess.py:93} INFO - Fetched chart for paypal-usd
+[2026-07-21T07:48:31.412+0000] {subprocess.py:93} INFO - Rate limited on shiba-inu (attempt 1/5); sleeping 60s
+[2026-07-21T07:48:31.413+0000] {subprocess.py:93} INFO - Rate limited on shiba-inu (attempt 2/5); sleeping 1s
+[2026-07-21T07:48:31.414+0000] {subprocess.py:93} INFO - Fetched chart for shiba-inu
+[2026-07-21T07:48:31.415+0000] {subprocess.py:93} INFO - Fetched chart for crypto-com-chain
+[2026-07-21T07:48:31.416+0000] {subprocess.py:93} INFO - Rate limited on tether-gold (attempt 1/5); sleeping 59s
+[2026-07-21T07:48:31.416+0000] {subprocess.py:93} INFO - Rate limited on tether-gold (attempt 2/5); sleeping 1s
+[2026-07-21T07:48:31.417+0000] {subprocess.py:93} INFO - Fetched chart for tether-gold
+[2026-07-21T07:48:31.418+0000] {subprocess.py:93} INFO - Error fetching market_chart for global-dollar-stablecoin-gds: 404 Client Error: Not Found for url: https://api.coingecko.com/api/v3/coins/global-dollar-stablecoin-gds/market_chart?vs_currency=usd&days=90
+[2026-07-21T07:48:31.418+0000] {subprocess.py:93} INFO - Fetched chart for blackrock-usd-institutional-digital-liquidity-fund
+[2026-07-21T07:48:31.419+0000] {subprocess.py:93} INFO - Rate limited on ondo-us-dollar-yield (attempt 1/5); sleeping 59s
+[2026-07-21T07:48:31.420+0000] {subprocess.py:93} INFO - Rate limited on ondo-us-dollar-yield (attempt 2/5); sleeping 1s
+[2026-07-21T07:48:31.420+0000] {subprocess.py:93} INFO - Fetched chart for ondo-us-dollar-yield
+[2026-07-21T07:48:31.421+0000] {subprocess.py:93} INFO - Fetched chart for bittensor
+[2026-07-21T07:48:31.422+0000] {subprocess.py:93} INFO - Fetched chart for pax-gold
+[2026-07-21T07:48:31.422+0000] {subprocess.py:93} INFO - Rate limited on ondo-finance (attempt 1/5); sleeping 57s
+[2026-07-21T07:48:31.423+0000] {subprocess.py:93} INFO - Rate limited on ondo-finance (attempt 2/5); sleeping 1s
+[2026-07-21T07:48:31.424+0000] {subprocess.py:93} INFO - Fetched chart for ondo-finance
+[2026-07-21T07:48:31.432+0000] {subprocess.py:93} INFO - Fetched chart for mantle
+[2026-07-21T07:48:31.433+0000] {subprocess.py:93} INFO - Fetched chart for world-liberty-financial
+[2026-07-21T07:48:31.435+0000] {subprocess.py:93} INFO - Rate limited on worldcoin (attempt 1/5); sleeping 60s
+[2026-07-21T07:48:31.436+0000] {subprocess.py:93} INFO - Rate limited on worldcoin (attempt 2/5); sleeping 1s
+[2026-07-21T07:48:31.438+0000] {subprocess.py:93} INFO - Error fetching market_chart for worldcoin: 404 Client Error: Not Found for url: https://api.coingecko.com/api/v3/coins/worldcoin/market_chart?vs_currency=usd&days=90
+[2026-07-21T07:48:31.439+0000] {subprocess.py:93} INFO - Rate limited on ripple-usd (attempt 1/5); sleeping 60s
+[2026-07-21T07:48:31.440+0000] {subprocess.py:93} INFO - Rate limited on ripple-usd (attempt 2/5); sleeping 1s
+[2026-07-21T07:48:31.441+0000] {subprocess.py:93} INFO - Fetched chart for ripple-usd
+[2026-07-21T07:48:31.442+0000] {subprocess.py:93} INFO - Fetched chart for polkadot
+[2026-07-21T07:48:31.443+0000] {subprocess.py:93} INFO - Rate limited on aster-2 (attempt 1/5); sleeping 60s
+[2026-07-21T07:48:31.446+0000] {subprocess.py:93} INFO - Rate limited on aster-2 (attempt 2/5); sleeping 1s
+[2026-07-21T07:48:31.447+0000] {subprocess.py:93} INFO - Fetched chart for aster-2
+[2026-07-21T07:48:31.447+0000] {subprocess.py:93} INFO - Fetched chart for htx-dao
+[2026-07-21T07:48:31.448+0000] {subprocess.py:93} INFO - Rate limited on uniswap (attempt 1/5); sleeping 60s
+[2026-07-21T07:48:31.449+0000] {subprocess.py:93} INFO - Rate limited on uniswap (attempt 2/5); sleeping 1s
+[2026-07-21T07:48:31.449+0000] {subprocess.py:93} INFO - Fetched chart for uniswap
+[2026-07-21T07:48:31.450+0000] {subprocess.py:93} INFO - Fetched chart for okb
+[2026-07-21T07:48:31.451+0000] {subprocess.py:93} INFO - Rate limited on falcon-financial (attempt 1/5); sleeping 60s
+[2026-07-21T07:48:31.452+0000] {subprocess.py:93} INFO - Rate limited on falcon-financial (attempt 2/5); sleeping 1s
+[2026-07-21T07:48:31.452+0000] {subprocess.py:93} INFO - Error fetching market_chart for falcon-financial: 404 Client Error: Not Found for url: https://api.coingecko.com/api/v3/coins/falcon-financial/market_chart?vs_currency=usd&days=90
+[2026-07-21T07:48:31.453+0000] {subprocess.py:93} INFO - Fetched chart for pi-network
+[2026-07-21T07:48:31.454+0000] {subprocess.py:93} INFO - Rate limited on usdd (attempt 1/5); sleeping 60s
+[2026-07-21T07:48:31.454+0000] {subprocess.py:93} INFO - Rate limited on usdd (attempt 2/5); sleeping 1s
+[2026-07-21T07:48:31.455+0000] {subprocess.py:93} INFO - Fetched chart for usdd
+[2026-07-21T07:48:31.456+0000] {subprocess.py:93} INFO - Fetched chart for sky
+[2026-07-21T07:48:31.456+0000] {subprocess.py:93} INFO - Fetched chart for bfusd
+[2026-07-21T07:48:31.457+0000] {subprocess.py:93} INFO - Rate limited on internet-computer (attempt 1/5); sleeping 60s
+[2026-07-21T07:48:31.458+0000] {subprocess.py:93} INFO - Rate limited on internet-computer (attempt 2/5); sleeping 1s
+[2026-07-21T07:48:31.459+0000] {subprocess.py:93} INFO - Fetched chart for internet-computer
+[2026-07-21T07:48:31.460+0000] {subprocess.py:93} INFO - Fetched chart for bitget-token
+[2026-07-21T07:48:31.461+0000] {subprocess.py:93} INFO - Fetched chart for audiera
+[2026-07-21T07:48:31.462+0000] {subprocess.py:93} INFO - Rate limited on pepe (attempt 1/5); sleeping 59s
+[2026-07-21T07:48:31.463+0000] {subprocess.py:93} INFO - Rate limited on pepe (attempt 2/5); sleeping 1s
+[2026-07-21T07:48:31.464+0000] {subprocess.py:93} INFO - Fetched chart for pepe
+[2026-07-21T07:48:31.465+0000] {subprocess.py:93} INFO - Fetched chart for morpho
+[2026-07-21T07:48:31.465+0000] {subprocess.py:93} INFO - Rate limited on ethereum-classic (attempt 1/5); sleeping 60s
+[2026-07-21T07:48:31.466+0000] {subprocess.py:93} INFO - Rate limited on ethereum-classic (attempt 2/5); sleeping 1s
+[2026-07-21T07:48:31.467+0000] {subprocess.py:93} INFO - Fetched chart for ethereum-classic
+[2026-07-21T07:48:31.467+0000] {subprocess.py:93} INFO - Fetched chart for dexe
+[2026-07-21T07:48:31.468+0000] {subprocess.py:93} INFO - Rate limited on usdtb (attempt 1/5); sleeping 60s
+[2026-07-21T07:48:31.469+0000] {subprocess.py:93} INFO - Rate limited on usdtb (attempt 2/5); sleeping 1s
+[2026-07-21T07:48:31.470+0000] {subprocess.py:93} INFO - Fetched chart for usdtb
+[2026-07-21T07:48:31.470+0000] {subprocess.py:93} INFO - Fetched chart for eutbl
+[2026-07-21T07:48:31.471+0000] {subprocess.py:93} INFO - Rate limited on united-states-dollar (attempt 1/5); sleeping 60s
+[2026-07-21T07:48:31.472+0000] {subprocess.py:93} INFO - Rate limited on united-states-dollar (attempt 2/5); sleeping 1s
+[2026-07-21T07:48:31.473+0000] {subprocess.py:93} INFO - Error fetching market_chart for united-states-dollar: 404 Client Error: Not Found for url: https://api.coingecko.com/api/v3/coins/united-states-dollar/market_chart?vs_currency=usd&days=90
+[2026-07-21T07:48:31.474+0000] {subprocess.py:93} INFO - Fetched chart for quant-network
+[2026-07-21T07:55:30.577+0000] {subprocess.py:93} INFO - Rate limited on blockchain-capital (attempt 1/5); sleeping 60s
+[2026-07-21T07:55:30.579+0000] {subprocess.py:93} INFO - Rate limited on blockchain-capital (attempt 2/5); sleeping 1s
+[2026-07-21T07:55:30.579+0000] {subprocess.py:93} INFO - Fetched chart for blockchain-capital
+[2026-07-21T07:55:30.580+0000] {subprocess.py:93} INFO - Fetched chart for aave
+[2026-07-21T07:55:30.581+0000] {subprocess.py:93} INFO - Error fetching market_chart for superstate: 404 Client Error: Not Found for url: https://api.coingecko.com/api/v3/coins/superstate/market_chart?vs_currency=usd&days=90
+[2026-07-21T07:55:30.582+0000] {subprocess.py:93} INFO - Rate limited on cosmos (attempt 1/5); sleeping 60s
+[2026-07-21T07:55:30.583+0000] {subprocess.py:93} INFO - Rate limited on cosmos (attempt 2/5); sleeping 1s
+[2026-07-21T07:55:30.584+0000] {subprocess.py:93} INFO - Fetched chart for cosmos
+[2026-07-21T07:55:30.585+0000] {subprocess.py:93} INFO - Fetched chart for siren-2
+[2026-07-21T07:55:30.586+0000] {subprocess.py:93} INFO - Fetched chart for kaspa
+[2026-07-21T07:55:30.586+0000] {subprocess.py:93} INFO - Rate limited on janus-henderson-anemoy-treasury-fund (attempt 1/5); sleeping 58s
+[2026-07-21T07:55:30.587+0000] {subprocess.py:93} INFO - Rate limited on janus-henderson-anemoy-treasury-fund (attempt 2/5); sleeping 1s
+[2026-07-21T07:55:30.588+0000] {subprocess.py:93} INFO - Fetched chart for janus-henderson-anemoy-treasury-fund
+[2026-07-21T07:55:30.588+0000] {subprocess.py:93} INFO - Fetched chart for kucoin-shares
+[2026-07-21T07:55:30.589+0000] {subprocess.py:93} INFO - Fetched chart for render-token
+[2026-07-21T07:55:30.590+0000] {subprocess.py:93} INFO - Rate limited on algorand (attempt 1/5); sleeping 60s
+[2026-07-21T07:55:30.591+0000] {subprocess.py:93} INFO - Rate limited on algorand (attempt 2/5); sleeping 1s
+[2026-07-21T07:55:30.591+0000] {subprocess.py:93} INFO - Fetched chart for algorand
+[2026-07-21T07:55:30.592+0000] {subprocess.py:93} INFO - Error fetching market_chart for polygon-ecosystem: 404 Client Error: Not Found for url: https://api.coingecko.com/api/v3/coins/polygon-ecosystem/market_chart?vs_currency=usd&days=90
+[2026-07-21T07:55:30.593+0000] {subprocess.py:93} INFO - Rate limited on nexo (attempt 1/5); sleeping 60s
+[2026-07-21T07:55:30.594+0000] {subprocess.py:93} INFO - Error fetching market_chart for nexo: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-07-21T07:55:30.594+0000] {subprocess.py:93} INFO - Error fetching market_chart for ethena: HTTPSConnectionPool(host='api.coingecko.com', port=443): Max retries exceeded with url: /api/v3/coins/ethena/market_chart?vs_currency=usd&days=90 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x71df7a59eba0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+[2026-07-21T07:55:30.595+0000] {subprocess.py:93} INFO - Error fetching market_chart for stable-2: HTTPSConnectionPool(host='api.coingecko.com', port=443): Max retries exceeded with url: /api/v3/coins/stable-2/market_chart?vs_currency=usd&days=90 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x71df7a59f200>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+[2026-07-21T07:55:30.596+0000] {subprocess.py:93} INFO - Error fetching market_chart for venice-token: HTTPSConnectionPool(host='api.coingecko.com', port=443): Max retries exceeded with url: /api/v3/coins/venice-token/market_chart?vs_currency=usd&days=90 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x71df7a59ea50>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+[2026-07-21T07:55:30.597+0000] {subprocess.py:93} INFO - Error fetching market_chart for just: HTTPSConnectionPool(host='api.coingecko.com', port=443): Max retries exceeded with url: /api/v3/coins/just/market_chart?vs_currency=usd&days=90 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x71df7a59f440>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+[2026-07-21T07:55:30.598+0000] {subprocess.py:93} INFO - Error fetching market_chart for bianrensheng: HTTPSConnectionPool(host='api.coingecko.com', port=443): Max retries exceeded with url: /api/v3/coins/bianrensheng/market_chart?vs_currency=usd&days=90 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x71df7a59e6c0>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+[2026-07-21T07:55:30.599+0000] {subprocess.py:93} INFO - Error fetching market_chart for gatechain-token: HTTPSConnectionPool(host='api.coingecko.com', port=443): Max retries exceeded with url: /api/v3/coins/gatechain-token/market_chart?vs_currency=usd&days=90 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x71df7a59f350>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+[2026-07-21T07:55:30.600+0000] {subprocess.py:93} INFO - Error fetching market_chart for xdce-crowd: HTTPSConnectionPool(host='api.coingecko.com', port=443): Max retries exceeded with url: /api/v3/coins/xdce-crowd/market_chart?vs_currency=usd&days=90 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x71df7a59e5d0>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+[2026-07-21T07:55:30.601+0000] {subprocess.py:93} INFO - Error fetching market_chart for beldex: HTTPSConnectionPool(host='api.coingecko.com', port=443): Max retries exceeded with url: /api/v3/coins/beldex/market_chart?vs_currency=usd&days=90 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x71df7a59e7e0>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+[2026-07-21T07:55:30.601+0000] {subprocess.py:93} INFO - Error fetching market_chart for flare-network: HTTPSConnectionPool(host='api.coingecko.com', port=443): Max retries exceeded with url: /api/v3/coins/flare-network/market_chart?vs_currency=usd&days=90 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x71df7a59e330>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+[2026-07-21T07:55:30.602+0000] {subprocess.py:93} INFO - Error fetching market_chart for filecoin: HTTPSConnectionPool(host='api.coingecko.com', port=443): Max retries exceeded with url: /api/v3/coins/filecoin/market_chart?vs_currency=usd&days=90 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x71df7a59eff0>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+[2026-07-21T07:55:30.603+0000] {subprocess.py:93} INFO - Error fetching market_chart for gho: HTTPSConnectionPool(host='api.coingecko.com', port=443): Max retries exceeded with url: /api/v3/coins/gho/market_chart?vs_currency=usd&days=90 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x71df7a59fb90>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+[2026-07-21T07:55:30.604+0000] {subprocess.py:93} INFO - Error fetching market_chart for injective-protocol: HTTPSConnectionPool(host='api.coingecko.com', port=443): Max retries exceeded with url: /api/v3/coins/injective-protocol/market_chart?vs_currency=usd&days=90 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x71df7a59f3e0>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+[2026-07-21T07:55:30.605+0000] {subprocess.py:93} INFO - Error fetching market_chart for usual-usd: HTTPSConnectionPool(host='api.coingecko.com', port=443): Max retries exceeded with url: /api/v3/coins/usual-usd/market_chart?vs_currency=usd&days=90 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x71df7a59ef30>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+[2026-07-21T07:55:30.605+0000] {subprocess.py:93} INFO - Error fetching market_chart for aptos: HTTPSConnectionPool(host='api.coingecko.com', port=443): Max retries exceeded with url: /api/v3/coins/aptos/market_chart?vs_currency=usd&days=90 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x71df7a1945f0>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+[2026-07-21T07:55:30.606+0000] {subprocess.py:93} INFO - Error fetching market_chart for pump-fun: HTTPSConnectionPool(host='api.coingecko.com', port=443): Max retries exceeded with url: /api/v3/coins/pump-fun/market_chart?vs_currency=usd&days=90 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x71df7a195b80>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+[2026-07-21T07:55:30.607+0000] {subprocess.py:93} INFO - Error fetching market_chart for ylds: HTTPSConnectionPool(host='api.coingecko.com', port=443): Max retries exceeded with url: /api/v3/coins/ylds/market_chart?vs_currency=usd&days=90 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x71df7a195b80>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+[2026-07-21T07:55:30.608+0000] {subprocess.py:93} INFO - Error fetching market_chart for hash-2: HTTPSConnectionPool(host='api.coingecko.com', port=443): Max retries exceeded with url: /api/v3/coins/hash-2/market_chart?vs_currency=usd&days=90 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x71df7a196600>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+[2026-07-21T07:55:30.609+0000] {subprocess.py:93} INFO - Error fetching market_chart for midnight-3: HTTPSConnectionPool(host='api.coingecko.com', port=443): Max retries exceeded with url: /api/v3/coins/midnight-3/market_chart?vs_currency=usd&days=90 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x71df7a196600>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+[2026-07-21T07:55:47.203+0000] {subprocess.py:93} INFO - Error fetching market_chart for jupiter-exchange: HTTPSConnectionPool(host='api.coingecko.com', port=443): Max retries exceeded with url: /api/v3/coins/jupiter-exchange/market_chart?vs_currency=usd&days=90 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x71df7a194bf0>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+[2026-07-21T07:55:47.238+0000] {subprocess.py:93} INFO - Warning: no payload for 31 coin(s): ['aptos', 'beldex', 'bianrensheng', 'ethena', 'ethena-usd', 'falcon-financial', 'filecoin', 'flare-network', 'gatechain-token', 'gho', 'global-dollar-stablecoin-gds', 'hash-2', 'hashnote-usd', 'injective-protocol', 'jupiter-exchange', 'just', 'labra-finance', 'midnight-3', 'near-protocol', 'nexo', 'polygon-ecosystem', 'pump-fun', 'stable-2', 'superstate', 'united-states-dollar', 'usual-usd', 'venice-token', 'whitebit-coin', 'worldcoin', 'xdce-crowd', 'ylds']
+[2026-07-21T07:55:47.561+0000] {subprocess.py:93} INFO - Upserted 69 row(s) into raw.coin_price_history.
+[2026-07-21T07:55:47.573+0000] {subprocess.py:93} INFO - Total rows in raw.coin_price_history: 69
+[2026-07-21T07:55:47.576+0000] {subprocess.py:93} INFO - Coin history ingestion completed.
+[2026-07-21T07:55:52.534+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-07-21T07:55:52.632+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-07-21T07:55:53.640+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=coinflow_daily_pipeline, task_id=extract_coin_history_data, run_id=scheduled__2026-07-20T06:00:00+00:00, execution_date=20260720T060000, start_date=20260721T071233, end_date=20260721T075553
+[2026-07-21T07:55:53.929+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-07-21T07:55:54.982+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-07-21T07:55:55.232+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

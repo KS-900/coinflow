@@ -52,4 +52,4 @@ with DAG(
         bash_command='cd /opt/airflow/coinflow_dbt && dbt test',   # Set the bash command to execute the dbt test command for testing the transformed data using dbt models
     )
     # Define the task dependencies
-    extract_market_coin_data >> extract_coin_history_data >> extract_coin_categories_data >> dbt_run_task >> dbt_test_data
+    [extract_market_coin_data, extract_coin_history_data, extract_coin_categories_data] >> dbt_run_task >> dbt_test_data

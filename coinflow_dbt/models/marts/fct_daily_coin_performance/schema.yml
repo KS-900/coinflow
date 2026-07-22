@@ -17,7 +17,7 @@ models:
         data_tests:
           - not_null
           - relationships:
-              to: "{{ref('int_coin_daily_metrics')}}"
+              to: ref('int_coin_daily_metrics')
               field: coin_id
       - name: name_of_coin
         description: name of the coin

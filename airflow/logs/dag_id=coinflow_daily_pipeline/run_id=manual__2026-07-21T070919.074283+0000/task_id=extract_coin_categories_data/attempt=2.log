@@ -1,0 +1,46 @@
+[2026-07-21T08:33:29.536+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-07-21T08:33:29.612+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: coinflow_daily_pipeline.extract_coin_categories_data manual__2026-07-21T07:09:19.074283+00:00 [queued]>
+[2026-07-21T08:33:29.630+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: coinflow_daily_pipeline.extract_coin_categories_data manual__2026-07-21T07:09:19.074283+00:00 [queued]>
+[2026-07-21T08:33:29.632+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 4
+[2026-07-21T08:33:29.755+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): extract_coin_categories_data> on 2026-07-21 07:09:19.074283+00:00
+[2026-07-21T08:33:29.832+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=3307) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-21T08:33:29.874+0000] {standard_task_runner.py:64} INFO - Started process 3308 to run task
+[2026-07-21T08:33:29.879+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'coinflow_daily_pipeline', 'extract_coin_categories_data', 'manual__2026-07-21T07:09:19.074283+00:00', '--job-id', '13', '--raw', '--subdir', 'DAGS_FOLDER/coinflow_daily_pipeline.py', '--cfg-path', '/tmp/tmp20kkjmwq']
+[2026-07-21T08:33:29.883+0000] {standard_task_runner.py:91} INFO - Job 13: Subtask extract_coin_categories_data
+[2026-07-21T08:33:30.048+0000] {task_command.py:426} INFO - Running <TaskInstance: coinflow_daily_pipeline.extract_coin_categories_data manual__2026-07-21T07:09:19.074283+00:00 [running]> on host ee8816a37129
+[2026-07-21T08:33:30.519+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='coinflow_daily_pipeline' AIRFLOW_CTX_TASK_ID='extract_coin_categories_data' AIRFLOW_CTX_EXECUTION_DATE='2026-07-21T07:09:19.074283+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-07-21T07:09:19.074283+00:00'
+[2026-07-21T08:33:30.527+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-07-21T08:33:30.619+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-07-21T08:33:30.629+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/scripts/ingest_coin_categories.py']
+[2026-07-21T08:33:30.668+0000] {subprocess.py:86} INFO - Output:
+[2026-07-21T08:33:34.143+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-07-21T08:33:34.144+0000] {subprocess.py:93} INFO -   File "/opt/***/scripts/ingest_coin_categories.py", line 239, in <module>
+[2026-07-21T08:33:34.149+0000] {subprocess.py:93} INFO -     main()
+[2026-07-21T08:33:34.151+0000] {subprocess.py:93} INFO -   File "/opt/***/scripts/ingest_coin_categories.py", line 223, in main
+[2026-07-21T08:33:34.157+0000] {subprocess.py:93} INFO -     delay_sec = _request_delay_sec()
+[2026-07-21T08:33:34.159+0000] {subprocess.py:93} INFO -                 ^^^^^^^^^^^^^^^^^^^^
+[2026-07-21T08:33:34.161+0000] {subprocess.py:93} INFO -   File "/opt/***/scripts/ingest_coin_categories.py", line 51, in _request_delay_sec
+[2026-07-21T08:33:34.162+0000] {subprocess.py:93} INFO -     raw = float(os.getenv("API_DELAY_SECONDS", "").strip())
+[2026-07-21T08:33:34.164+0000] {subprocess.py:93} INFO -           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-07-21T08:33:34.165+0000] {subprocess.py:93} INFO - ValueError: could not convert string to float: ''
+[2026-07-21T08:33:34.253+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-07-21T08:33:34.258+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-07-21T08:33:34.311+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-07-21T08:33:34.326+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=coinflow_daily_pipeline, task_id=extract_coin_categories_data, run_id=manual__2026-07-21T07:09:19.074283+00:00, execution_date=20260721T070919, start_date=20260721T083329, end_date=20260721T083334
+[2026-07-21T08:33:34.470+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 13 for task extract_coin_categories_data (Bash command failed. The command returned a non-zero exit code 1.; 3308)
+[2026-07-21T08:33:34.521+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2026-07-21T08:33:34.654+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-21T08:33:34.800+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

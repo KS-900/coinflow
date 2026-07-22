@@ -1,0 +1,52 @@
+[2026-07-21T09:30:47.997+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-07-21T09:30:48.256+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: coinflow_daily_pipeline.dbt_run_task manual__2026-07-21T07:09:19.074283+00:00 [queued]>
+[2026-07-21T09:30:48.311+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: coinflow_daily_pipeline.dbt_run_task manual__2026-07-21T07:09:19.074283+00:00 [queued]>
+[2026-07-21T09:30:48.314+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 4
+[2026-07-21T09:30:48.416+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run_task> on 2026-07-21 07:09:19.074283+00:00
+[2026-07-21T09:30:48.482+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'coinflow_daily_pipeline', 'dbt_run_task', 'manual__2026-07-21T07:09:19.074283+00:00', '--job-id', '17', '--raw', '--subdir', 'DAGS_FOLDER/coinflow_daily_pipeline.py', '--cfg-path', '/tmp/tmpvagnek5x']
+[2026-07-21T09:30:48.504+0000] {standard_task_runner.py:91} INFO - Job 17: Subtask dbt_run_task
+[2026-07-21T09:30:48.507+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=881) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-21T09:30:48.516+0000] {standard_task_runner.py:64} INFO - Started process 882 to run task
+[2026-07-21T09:30:48.758+0000] {task_command.py:426} INFO - Running <TaskInstance: coinflow_daily_pipeline.dbt_run_task manual__2026-07-21T07:09:19.074283+00:00 [running]> on host b2d67a8b1605
+[2026-07-21T09:30:49.280+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='coinflow_daily_pipeline' AIRFLOW_CTX_TASK_ID='dbt_run_task' AIRFLOW_CTX_EXECUTION_DATE='2026-07-21T07:09:19.074283+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-07-21T07:09:19.074283+00:00'
+[2026-07-21T09:30:49.283+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-07-21T09:30:49.370+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-07-21T09:30:49.384+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/coinflow_dbt && dbt run']
+[2026-07-21T09:30:49.433+0000] {subprocess.py:86} INFO - Output:
+[2026-07-21T09:31:26.720+0000] {subprocess.py:93} INFO - [0m09:31:26  Running with dbt=1.7.13
+[2026-07-21T09:31:32.131+0000] {subprocess.py:93} INFO - [0m09:31:32  Registered adapter: postgres=1.7.13
+[2026-07-21T09:31:41.722+0000] {subprocess.py:93} INFO - [0m09:31:41  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+[2026-07-21T09:31:41.724+0000] {subprocess.py:93} INFO - There are 1 unused configuration paths:
+[2026-07-21T09:31:41.726+0000] {subprocess.py:93} INFO - - models.coinflow_dbt.example
+[2026-07-21T09:31:42.440+0000] {subprocess.py:93} INFO - [0m09:31:42  Found 8 models, 1 snapshot, 3 sources, 0 exposures, 0 metrics, 519 macros, 0 groups, 0 semantic models
+[2026-07-21T09:31:42.458+0000] {subprocess.py:93} INFO - [0m09:31:42
+[2026-07-21T09:31:45.380+0000] {subprocess.py:93} INFO - [0m09:31:45  Concurrency: 1 threads (target='dev')
+[2026-07-21T09:31:45.389+0000] {subprocess.py:93} INFO - [0m09:31:45
+[2026-07-21T09:31:45.426+0000] {subprocess.py:93} INFO - [0m09:31:45  1 of 8 START sql table model staging.stg_coin_categories ....................... [RUN]
+[2026-07-21T09:31:47.218+0000] {subprocess.py:93} INFO - [0m09:31:47  1 of 8 OK created sql table model staging.stg_coin_categories .................. [[32mSELECT 940[0m in 1.78s]
+[2026-07-21T09:31:47.235+0000] {subprocess.py:93} INFO - [0m09:31:47  2 of 8 START sql table model staging.stg_coin_markets .......................... [RUN]
+[2026-07-21T09:31:49.286+0000] {subprocess.py:93} INFO - [0m09:31:49  2 of 8 OK created sql table model staging.stg_coin_markets ..................... [[32mSELECT 100[0m in 2.04s]
+[2026-07-21T09:31:49.311+0000] {subprocess.py:93} INFO - [0m09:31:49  3 of 8 START sql incremental model staging.stg_coin_price_history .............. [RUN]
+[2026-07-21T09:32:27.026+0000] {subprocess.py:93} INFO - [0m09:32:27  3 of 8 OK created sql incremental model staging.stg_coin_price_history ......... [[32mSELECT 7807[0m in 37.70s]
+[2026-07-21T09:32:27.041+0000] {subprocess.py:93} INFO - [0m09:32:27  4 of 8 START sql incremental model intermediate.int_coin_daily_metrics ......... [RUN]
+[2026-07-21T09:32:29.378+0000] {subprocess.py:93} INFO - [0m09:32:29  4 of 8 OK created sql incremental model intermediate.int_coin_daily_metrics .... [[32mSELECT 7807[0m in 2.32s]
+[2026-07-21T09:32:29.396+0000] {subprocess.py:93} INFO - [0m09:32:29  5 of 8 START sql table model marts.fct_daily_coin_performance .................. [RUN]
+[2026-07-21T09:32:31.504+0000] {subprocess.py:93} INFO - [0m09:32:31  5 of 8 OK created sql table model marts.fct_daily_coin_performance ............. [[32mSELECT 7807[0m in 2.10s]
+[2026-07-21T09:32:31.516+0000] {subprocess.py:93} INFO - [0m09:32:31  6 of 8 START sql table model marts.fct_market_summary .......................... [RUN]
+[2026-07-21T09:32:32.382+0000] {subprocess.py:93} INFO - [0m09:32:32  6 of 8 OK created sql table model marts.fct_market_summary ..................... [[32mSELECT 91[0m in 0.85s]
+[2026-07-21T09:32:32.408+0000] {subprocess.py:93} INFO - [0m09:32:32  7 of 8 START sql table model intermediate.int_coin_categories .................. [RUN]
+[2026-07-21T09:32:56.315+0000] {subprocess.py:93} INFO - [0m09:32:56  7 of 8 OK created sql table model intermediate.int_coin_categories ............. [[32mSELECT 85416[0m in 23.86s]
+[2026-07-21T09:32:56.334+0000] {subprocess.py:93} INFO - [0m09:32:56  8 of 8 START sql table model marts.dim_coins ................................... [RUN]
+[2026-07-21T09:32:58.062+0000] {subprocess.py:93} INFO - [0m09:32:58  8 of 8 OK created sql table model marts.dim_coins .............................. [[32mSELECT 940[0m in 1.72s]
+[2026-07-21T09:32:58.142+0000] {subprocess.py:93} INFO - [0m09:32:58
+[2026-07-21T09:32:58.145+0000] {subprocess.py:93} INFO - [0m09:32:58  Finished running 6 table models, 2 incremental models in 0 hours 1 minutes and 15.68 seconds (75.68s).
+[2026-07-21T09:32:58.287+0000] {subprocess.py:93} INFO - [0m09:32:58
+[2026-07-21T09:32:58.304+0000] {subprocess.py:93} INFO - [0m09:32:58  [32mCompleted successfully[0m
+[2026-07-21T09:32:58.312+0000] {subprocess.py:93} INFO - [0m09:32:58
+[2026-07-21T09:32:58.325+0000] {subprocess.py:93} INFO - [0m09:32:58  Done. PASS=8 WARN=0 ERROR=0 SKIP=0 TOTAL=8
+[2026-07-21T09:33:01.919+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-07-21T09:33:01.921+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-07-21T09:33:02.034+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=coinflow_daily_pipeline, task_id=dbt_run_task, run_id=manual__2026-07-21T07:09:19.074283+00:00, execution_date=20260721T070919, start_date=20260721T093048, end_date=20260721T093302
+[2026-07-21T09:33:02.198+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-07-21T09:33:02.276+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-07-21T09:33:02.415+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
